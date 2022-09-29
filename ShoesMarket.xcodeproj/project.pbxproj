@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AEF28E64A46009D9E08 /* CatalogView.swift */; };
 		ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */; };
-		ACF8509628E604D50053BE2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8509528E604D50053BE2F /* ContentView.swift */; };
+		ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8509528E604D50053BE2F /* SMTabBar.swift */; };
 		ACF8509828E604D60053BE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF8509728E604D60053BE2F /* Assets.xcassets */; };
 		ACF8509C28E604D60053BE2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF8509B28E604D60053BE2F /* Preview Assets.xcassets */; };
+		ACF850A828E60C8E0053BE2F /* SMTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF850A728E60C8E0053BE2F /* SMTabBarItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ACE23AEF28E64A46009D9E08 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
 		ACF8509028E604D50053BE2F /* ShoesMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoesMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesMarketApp.swift; sourceTree = "<group>"; };
-		ACF8509528E604D50053BE2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		ACF8509528E604D50053BE2F /* SMTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTabBar.swift; sourceTree = "<group>"; };
 		ACF8509728E604D60053BE2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF8509928E604D60053BE2F /* ShoesMarket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShoesMarket.entitlements; sourceTree = "<group>"; };
 		ACF8509B28E604D60053BE2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ACF850A728E60C8E0053BE2F /* SMTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTabBarItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +56,9 @@
 		ACF8509228E604D50053BE2F /* ShoesMarket */ = {
 			isa = PBXGroup;
 			children = (
+				ACF850A328E60BCD0053BE2F /* Views */,
 				ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */,
-				ACF8509528E604D50053BE2F /* ContentView.swift */,
+				ACE23AEF28E64A46009D9E08 /* CatalogView.swift */,
 				ACF8509728E604D60053BE2F /* Assets.xcassets */,
 				ACF8509928E604D60053BE2F /* ShoesMarket.entitlements */,
 				ACF8509A28E604D60053BE2F /* Preview Content */,
@@ -67,6 +72,15 @@
 				ACF8509B28E604D60053BE2F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ACF850A328E60BCD0053BE2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACF8509528E604D50053BE2F /* SMTabBar.swift */,
+				ACF850A728E60C8E0053BE2F /* SMTabBarItem.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +153,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF8509628E604D50053BE2F /* ContentView.swift in Sources */,
+				ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */,
+				ACF850A828E60C8E0053BE2F /* SMTabBarItem.swift in Sources */,
+				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,
 				ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,8 +293,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -315,8 +331,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
