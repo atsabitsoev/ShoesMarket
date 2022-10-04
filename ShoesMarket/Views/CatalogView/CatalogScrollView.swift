@@ -15,8 +15,14 @@ struct CatalogScrollView: View {
 
 
     private let scrollDelegate: CatalogScrollViewDelegate = CatalogScrollViewDelegate()
-
     private let idealOffset: CGFloat = (UIScreen.main.bounds.width - CatalogItemView.Constants.width) / 2
+
+    private let onItemTap: (Int) -> Void
+
+
+    init(onItemTap: @escaping (Int) -> Void) {
+        self.onItemTap = onItemTap
+    }
 
 
     var body: some View {
@@ -27,6 +33,9 @@ struct CatalogScrollView: View {
                         .scaleEffect(getItemScale(index: index))
                         .blur(radius: abs(getItemScale(index: index) - 1) * 10)
                         .scrollId(index)
+                        .onTapGesture {
+                            onItemTap(index)
+                        }
                 }
             }
             .padding(EdgeInsets(top: 0, leading: idealOffset, bottom: 32, trailing: idealOffset))
@@ -94,7 +103,9 @@ private extension CatalogScrollView {
 
 struct CatalogScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        CatalogScrollView()
+        CatalogScrollView(onItemTap: { index in
+            print(index)
+        })
             .background(Color(white: 0.1))
             .previewLayout(.sizeThatFits)
     }

@@ -56,7 +56,7 @@ struct CatalogNavigationView: View {
             .frame(width: 56, height: 56)
         }
         .foregroundColor(Color.white)
-        .padding(EdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 8))
+        .padding(.horizontal, 8)
     }
 }
 

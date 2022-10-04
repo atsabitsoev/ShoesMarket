@@ -11,6 +11,8 @@
 		ACB838B728EC9AA300C01673 /* CatalogCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */; };
 		ACB838BA28ECA6AB00C01673 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B928ECA6AB00C01673 /* CornerRadius.swift */; };
 		ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */; };
+		ACB838C128ECBD9F00C01673 /* ShoeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838C028ECBD9F00C01673 /* ShoeDetailsView.swift */; };
+		ACB838C528ECD40600C01673 /* ShoeDetailsNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838C428ECD40600C01673 /* ShoeDetailsNavigationView.swift */; };
 		ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AEF28E64A46009D9E08 /* CatalogView.swift */; };
 		ACE23AF428E65DE2009D9E08 /* CatalogNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AF328E65DE2009D9E08 /* CatalogNavigationView.swift */; };
 		ACE23AF628E66B8D009D9E08 /* CatalogItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AF528E66B8D009D9E08 /* CatalogItemView.swift */; };
@@ -26,6 +28,8 @@
 		ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCategoriesView.swift; sourceTree = "<group>"; };
 		ACB838B928ECA6AB00C01673 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAddButton.swift; sourceTree = "<group>"; };
+		ACB838C028ECBD9F00C01673 /* ShoeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsView.swift; sourceTree = "<group>"; };
+		ACB838C428ECD40600C01673 /* ShoeDetailsNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsNavigationView.swift; sourceTree = "<group>"; };
 		ACE23AEF28E64A46009D9E08 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
 		ACE23AF328E65DE2009D9E08 /* CatalogNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogNavigationView.swift; sourceTree = "<group>"; };
 		ACE23AF528E66B8D009D9E08 /* CatalogItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemView.swift; sourceTree = "<group>"; };
@@ -74,6 +78,15 @@
 				ACB838B928ECA6AB00C01673 /* CornerRadius.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		ACB838BF28ECBD8700C01673 /* ShoeDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				ACB838C028ECBD9F00C01673 /* ShoeDetailsView.swift */,
+				ACB838C428ECD40600C01673 /* ShoeDetailsNavigationView.swift */,
+			);
+			path = ShoeDetailsView;
 			sourceTree = "<group>";
 		};
 		ACE23AF228E65D5B009D9E08 /* CatalogView */ = {
@@ -131,6 +144,7 @@
 				ACB838B828ECA68000C01673 /* Modifiers */,
 				AC59074028EB6BF8004E6AEF /* Library */,
 				ACE23AF228E65D5B009D9E08 /* CatalogView */,
+				ACB838BF28ECBD8700C01673 /* ShoeDetailsView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,8 +232,10 @@
 				ACE23AF628E66B8D009D9E08 /* CatalogItemView.swift in Sources */,
 				ACF850A828E60C8E0053BE2F /* SMTabBarItem.swift in Sources */,
 				ACE23AF428E65DE2009D9E08 /* CatalogNavigationView.swift in Sources */,
+				ACB838C128ECBD9F00C01673 /* ShoeDetailsView.swift in Sources */,
 				ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */,
 				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,
+				ACB838C528ECD40600C01673 /* ShoeDetailsNavigationView.swift in Sources */,
 				ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

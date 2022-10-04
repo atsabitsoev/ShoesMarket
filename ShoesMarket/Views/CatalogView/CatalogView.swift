@@ -8,16 +8,28 @@
 import SwiftUI
 
 struct CatalogView: View {
+    @State private var isPresentedDetails: Bool = false
+
+
     var body: some View {
-        ZStack {
-            Color.init(white: 0.1)
-                .ignoresSafeArea()
-            VStack {
-                CatalogNavigationView()
-                Spacer()
-                CatalogCategoriesView()
-                CatalogScrollView()
-                SMTabBar()
+        NavigationStack {
+            ZStack {
+                Color.init(white: 0.1)
+                    .ignoresSafeArea()
+                VStack {
+                    CatalogNavigationView()
+                    Spacer()
+                    CatalogCategoriesView()
+                    CatalogScrollView { index in
+                        print(index)
+                        isPresentedDetails = true
+                    }
+                    SMTabBar()
+                }
+            }
+            .navigationDestination(isPresented: $isPresentedDetails) {
+                ShoeDetailsView()
+                    .navigationBarBackButtonHidden()
             }
         }
     }
