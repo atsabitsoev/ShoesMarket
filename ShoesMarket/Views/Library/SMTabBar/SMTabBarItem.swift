@@ -56,6 +56,6 @@ struct SMTabBarItem_Previews: PreviewProvider {
             selectedColor: Color.yellow,
             unSelectedColor: Color(white: 0.15)
         )
-            .previewLayout(PreviewLayout.sizeThatFits)
+        .previewLayout(PreviewLayout.sizeThatFits)
     }
 }

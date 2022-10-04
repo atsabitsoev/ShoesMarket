@@ -13,6 +13,9 @@ struct CatalogView: View {
             Color.init(white: 0.1)
                 .ignoresSafeArea()
             VStack {
+                CatalogNavigationView()
+                Spacer()
+                CatalogScrollView()
                 Spacer()
                 SMTabBar()
             }

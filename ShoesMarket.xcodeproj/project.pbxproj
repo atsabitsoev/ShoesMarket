@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */ = {isa = PBXBuildFile; productRef = AC4412FF28EB907800DCBE2E /* ScrollViewProxy */; };
 		ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AEF28E64A46009D9E08 /* CatalogView.swift */; };
+		ACE23AF428E65DE2009D9E08 /* CatalogNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AF328E65DE2009D9E08 /* CatalogNavigationView.swift */; };
+		ACE23AF628E66B8D009D9E08 /* CatalogItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AF528E66B8D009D9E08 /* CatalogItemView.swift */; };
+		ACE23AF828E66FC1009D9E08 /* CatalogScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AF728E66FC0009D9E08 /* CatalogScrollView.swift */; };
 		ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */; };
 		ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8509528E604D50053BE2F /* SMTabBar.swift */; };
 		ACF8509828E604D60053BE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF8509728E604D60053BE2F /* Assets.xcassets */; };
@@ -17,6 +21,9 @@
 
 /* Begin PBXFileReference section */
 		ACE23AEF28E64A46009D9E08 /* CatalogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogView.swift; sourceTree = "<group>"; };
+		ACE23AF328E65DE2009D9E08 /* CatalogNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogNavigationView.swift; sourceTree = "<group>"; };
+		ACE23AF528E66B8D009D9E08 /* CatalogItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemView.swift; sourceTree = "<group>"; };
+		ACE23AF728E66FC0009D9E08 /* CatalogScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogScrollView.swift; sourceTree = "<group>"; };
 		ACF8509028E604D50053BE2F /* ShoesMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoesMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesMarketApp.swift; sourceTree = "<group>"; };
 		ACF8509528E604D50053BE2F /* SMTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTabBar.swift; sourceTree = "<group>"; };
@@ -31,12 +38,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC59074028EB6BF8004E6AEF /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				AC59074128EB6C08004E6AEF /* SMTabBar */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		AC59074128EB6C08004E6AEF /* SMTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				ACF8509528E604D50053BE2F /* SMTabBar.swift */,
+				ACF850A728E60C8E0053BE2F /* SMTabBarItem.swift */,
+			);
+			path = SMTabBar;
+			sourceTree = "<group>";
+		};
+		ACE23AF228E65D5B009D9E08 /* CatalogView */ = {
+			isa = PBXGroup;
+			children = (
+				ACE23AEF28E64A46009D9E08 /* CatalogView.swift */,
+				ACE23AF328E65DE2009D9E08 /* CatalogNavigationView.swift */,
+				ACE23AF528E66B8D009D9E08 /* CatalogItemView.swift */,
+				ACE23AF728E66FC0009D9E08 /* CatalogScrollView.swift */,
+			);
+			path = CatalogView;
+			sourceTree = "<group>";
+		};
 		ACF8508728E604D50053BE2F = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +94,6 @@
 			children = (
 				ACF850A328E60BCD0053BE2F /* Views */,
 				ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */,
-				ACE23AEF28E64A46009D9E08 /* CatalogView.swift */,
 				ACF8509728E604D60053BE2F /* Assets.xcassets */,
 				ACF8509928E604D60053BE2F /* ShoesMarket.entitlements */,
 				ACF8509A28E604D60053BE2F /* Preview Content */,
@@ -77,8 +112,8 @@
 		ACF850A328E60BCD0053BE2F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ACF8509528E604D50053BE2F /* SMTabBar.swift */,
-				ACF850A728E60C8E0053BE2F /* SMTabBarItem.swift */,
+				AC59074028EB6BF8004E6AEF /* Library */,
+				ACE23AF228E65D5B009D9E08 /* CatalogView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +134,9 @@
 			dependencies = (
 			);
 			name = ShoesMarket;
+			packageProductDependencies = (
+				AC4412FF28EB907800DCBE2E /* ScrollViewProxy */,
+			);
 			productName = ShoesMarket;
 			productReference = ACF8509028E604D50053BE2F /* ShoesMarket.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +165,9 @@
 				Base,
 			);
 			mainGroup = ACF8508728E604D50053BE2F;
+			packageReferences = (
+				AC4412FE28EB907800DCBE2E /* XCRemoteSwiftPackageReference "ScrollViewProxy" */,
+			);
 			productRefGroup = ACF8509128E604D50053BE2F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -153,8 +194,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE23AF828E66FC1009D9E08 /* CatalogScrollView.swift in Sources */,
 				ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */,
+				ACE23AF628E66B8D009D9E08 /* CatalogItemView.swift in Sources */,
 				ACF850A828E60C8E0053BE2F /* SMTabBarItem.swift in Sources */,
+				ACE23AF428E65DE2009D9E08 /* CatalogNavigationView.swift in Sources */,
 				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,
 				ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */,
 			);
@@ -370,6 +414,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC4412FE28EB907800DCBE2E /* XCRemoteSwiftPackageReference "ScrollViewProxy" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Amzd/ScrollViewProxy";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC4412FF28EB907800DCBE2E /* ScrollViewProxy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC4412FE28EB907800DCBE2E /* XCRemoteSwiftPackageReference "ScrollViewProxy" */;
+			productName = ScrollViewProxy;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ACF8508828E604D50053BE2F /* Project object */;
 }

@@ -11,7 +11,7 @@ struct SMTabBar: View {
     @State var selectedItem: Int = 0
 
     @State private(set) var tintColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
-    @State private(set) var backgroundColor: Color = Color(.displayP3, red: 254/255, green: 179/255, blue: 8/255)
+    @State private(set) var backgroundColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
 
     @State private var circlePosition: CGPoint = .zero
 
