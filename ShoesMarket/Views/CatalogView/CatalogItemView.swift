@@ -43,11 +43,23 @@ struct CatalogItemView: View {
                 Spacer()
             }
             .padding(Constants.padding)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    CatalogAddButton {
+                        print("hello")
+                    }
+                    .frame(width: 80, height: 80)
+                }
+            }
             Image("nikeShoe")
                 .resizable()
                 .scaledToFit()
                 .rotationEffect(Constants.shoeRotation)
                 .frame(width: Constants.width)
+                .padding(.top, 40)
+                .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 20)
         }
         .frame(width: Constants.width, height: Constants.height)
     }
@@ -57,7 +69,7 @@ struct CatalogItemView: View {
 extension CatalogItemView {
     enum Constants {
         static let width: CGFloat = 250
-        static let height: CGFloat = 400
+        static let height: CGFloat = 380
         
         fileprivate static let spacing: CGFloat = 6
         fileprivate static let padding: EdgeInsets = EdgeInsets(top: 44, leading: 24, bottom: 24, trailing: 24)
@@ -67,7 +79,7 @@ extension CatalogItemView {
 }
 
 
-private struct CatalogItemView_Previews: PreviewProvider {
+struct CatalogItemView_Previews: PreviewProvider {
     static var previews: some View {
         CatalogItemView()
             .background(Color.init(white: 0.1))

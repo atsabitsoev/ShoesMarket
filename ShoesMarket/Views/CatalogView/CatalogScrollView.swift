@@ -11,6 +11,7 @@ import ScrollViewProxy
 
 struct CatalogScrollView: View {
     @State private var offsetX: CGFloat = 0
+    @State private var items: [Int] = [0, 1, 2, 3, 4, 5]
 
 
     private let scrollDelegate: CatalogScrollViewDelegate = CatalogScrollViewDelegate()
@@ -21,17 +22,19 @@ struct CatalogScrollView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) { proxy in
             LazyHStack(alignment: .center, spacing: Constants.spacing) {
-                ForEach(0..<300) { index in
+                ForEach(items, id: \.description) { index in
                     CatalogItemView()
                         .scaleEffect(getItemScale(index: index))
+                        .blur(radius: abs(getItemScale(index: index) - 1) * 10)
                         .scrollId(index)
                 }
             }
-            .padding(EdgeInsets(top: 0, leading: idealOffset, bottom: 0, trailing: idealOffset))//(Constants.padding)
+            .padding(EdgeInsets(top: 0, leading: idealOffset, bottom: 32, trailing: idealOffset))
             .onReceive(proxy.offset, perform: { offsetX = $0.x })
             .onAppear {
                 scrollDelegate.onEndDecelerating = {
-                    guard offsetX >= 0 else { return }
+                    let maxOffsetX: CGFloat = CGFloat(items.count - 1) * (CatalogItemView.Constants.width + Constants.spacing)
+                    guard offsetX >= 0 && offsetX <= maxOffsetX else { return }
                     proxy.scrollTo(getIndexBy(offsetX))
                 }
                 scrollDelegate.onEndDragging = { willDecelerate in
@@ -41,7 +44,6 @@ struct CatalogScrollView: View {
                 }
             }
         }
-        .coordinateSpace(name: "scroll")
         .introspectScrollView { scrollView in
             scrollView.delegate = scrollDelegate
             scrollView.decelerationRate = .init(rawValue: 0.9)

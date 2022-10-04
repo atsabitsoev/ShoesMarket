@@ -15,8 +15,8 @@ struct CatalogView: View {
             VStack {
                 CatalogNavigationView()
                 Spacer()
+                CatalogCategoriesView()
                 CatalogScrollView()
-                Spacer()
                 SMTabBar()
             }
         }
