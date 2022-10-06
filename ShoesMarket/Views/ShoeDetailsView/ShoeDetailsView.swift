@@ -40,7 +40,6 @@ struct ShoeDetailsView: View {
                     }
                     .frame(width: geo.size.width, height: geo.size.height)
                 }
-                .scaledToFit()
                 Spacer()
                     .frame(height: 32)
                 ShoeDetailsTitlePriceView()
@@ -49,6 +48,22 @@ struct ShoeDetailsView: View {
                     Spacer()
                 }
                 Spacer()
+                    .frame(height: 32)
+                HStack {
+                    ShoeDetailsSizeView()
+                    Spacer()
+                }
+                Spacer()
+                    .frame(height: 32)
+                HStack(alignment: .bottom) {
+                    ShoeDetailsColorsView()
+                    Spacer()
+                    ShoeDetailsBuyButton {
+                        print("BUY")
+                    }
+                }
+                Spacer()
+                    .frame(height: 32)
             }
         }
         .contentShape(Rectangle())
