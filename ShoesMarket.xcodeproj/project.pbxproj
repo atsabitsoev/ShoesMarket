@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */ = {isa = PBXBuildFile; productRef = AC4412FF28EB907800DCBE2E /* ScrollViewProxy */; };
+		AC4C991928EE42340078001F /* ShoeDetailsPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */; };
+		AC4C991B28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */; };
 		ACB838B728EC9AA300C01673 /* CatalogCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */; };
 		ACB838BA28ECA6AB00C01673 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B928ECA6AB00C01673 /* CornerRadius.swift */; };
 		ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotosView.swift; sourceTree = "<group>"; };
+		AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotoIndicatorView.swift; sourceTree = "<group>"; };
 		ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCategoriesView.swift; sourceTree = "<group>"; };
 		ACB838B928ECA6AB00C01673 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAddButton.swift; sourceTree = "<group>"; };
@@ -85,6 +89,8 @@
 			children = (
 				ACB838C028ECBD9F00C01673 /* ShoeDetailsView.swift */,
 				ACB838C428ECD40600C01673 /* ShoeDetailsNavigationView.swift */,
+				AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */,
+				AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */,
 			);
 			path = ShoeDetailsView;
 			sourceTree = "<group>";
@@ -234,7 +240,9 @@
 				ACE23AF428E65DE2009D9E08 /* CatalogNavigationView.swift in Sources */,
 				ACB838C128ECBD9F00C01673 /* ShoeDetailsView.swift in Sources */,
 				ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */,
+				AC4C991928EE42340078001F /* ShoeDetailsPhotosView.swift in Sources */,
 				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,
+				AC4C991B28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift in Sources */,
 				ACB838C528ECD40600C01673 /* ShoeDetailsNavigationView.swift in Sources */,
 				ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */,
 			);

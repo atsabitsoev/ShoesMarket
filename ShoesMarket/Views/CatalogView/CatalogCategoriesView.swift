@@ -12,7 +12,7 @@ struct CatalogCategoriesView: View {
     @State private var selectedIndex: Int = 0
     @State private var offsetX: CGFloat = 0
 
-    @State private(set) var secondaryColor: Color = Color(white: 0.8)
+    @State private(set) var secondaryColor: Color = Color(white: 0.6)
     @State private(set) var selectionColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
 
 
