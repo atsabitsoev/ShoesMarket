@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CatalogItemView: View {
+    @State private var textColor = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
+
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: Constants.cornerRadius)
@@ -17,18 +20,21 @@ struct CatalogItemView: View {
                     Text("NIKE AIR")
                         .multilineTextAlignment(TextAlignment.leading)
                         .bold()
+                        .foregroundColor(textColor)
                     Spacer()
                 }
                 HStack {
                     Text("AIR JORDAN 1 MID SE")
                         .multilineTextAlignment(TextAlignment.leading)
                         .bold()
+                        .foregroundColor(textColor)
                     Spacer()
                 }
                 HStack {
                     Text("$899")
                         .multilineTextAlignment(TextAlignment.leading)
                         .bold()
+                        .foregroundColor(textColor)
                     Spacer()
                 }
                 Spacer()

@@ -32,6 +32,7 @@ struct SMTabBar: View {
                         y: Constants.barHeight / 2
                     )
                     .animation(Animation.spring(response: 1, dampingFraction: 0.5).speed(5), value: selectedItem)
+                    .foregroundColor(tintColor)
             }
             HStack(spacing: 0) {
                 ForEach(0..<totalItems, id: \.self) { id in
