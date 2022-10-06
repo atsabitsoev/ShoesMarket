@@ -28,7 +28,7 @@ struct ShoeDetailsView: View {
             VStack(spacing: 8) {
                 ShoeDetailsNavigationView()
                 GeometryReader { geo in
-                    VStack(spacing: 12) {
+                    VStack(spacing: 16) {
                         ZStack {
                             Text("NIKE AIR")
                                 .font(Font.system(size: UIScreen.main.bounds.width / 5))

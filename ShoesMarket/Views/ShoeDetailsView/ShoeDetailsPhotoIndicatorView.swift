@@ -37,7 +37,7 @@ struct ShoeDetailsPhotoIndicatorView: View {
 private extension ShoeDetailsPhotoIndicatorView {
     enum Constants {
         static let dotHeight: CGFloat = 8
-        static let selectedDotWidth: CGFloat = 24
+        static let selectedDotWidth: CGFloat = 32
         static let spacing: CGFloat = 8
     }
 }
