@@ -34,7 +34,7 @@ struct CatalogCategoriesView: View {
                         .scrollId(index)
                 }
             }
-            .padding(24)
+            .padding(.horizontal, 24)
             .onReceive(proxy.offset, perform: { offsetX = $0.x })
             .onAppear {
                 scrollDelegate.onEndDecelerating = {

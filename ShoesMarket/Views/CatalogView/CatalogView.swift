@@ -20,10 +20,12 @@ struct CatalogView: View {
                     CatalogNavigationView()
                     Spacer()
                     CatalogCategoriesView()
+                    Spacer()
                     CatalogScrollView { index in
                         print(index)
                         isPresentedDetails = true
                     }
+                    Spacer()
                     SMTabBar()
                 }
             }

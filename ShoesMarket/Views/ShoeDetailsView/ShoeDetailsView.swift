@@ -25,7 +25,7 @@ struct ShoeDetailsView: View {
                 .foregroundColor(tintColor)
                 .frame(width: UIScreen.main.bounds.width * 1.2)
                 .position(x: UIScreen.main.bounds.width / 9 * 8, y: 80)
-            VStack(spacing: 8) {
+            VStack {
                 ShoeDetailsNavigationView()
                 GeometryReader { geo in
                     VStack(spacing: 16) {
@@ -36,9 +36,17 @@ struct ShoeDetailsView: View {
                                 .bold()
                             ShoeDetailsPhotosView($selectedPhotoIndex)
                         }
-                        .frame(width: geo.size.width, height: geo.size.height / 2)
                         ShoeDetailsPhotoIndicatorView($selectedPhotoIndex, totalItems: images.count)
                     }
+                    .frame(width: geo.size.width, height: geo.size.height)
+                }
+                .scaledToFit()
+                Spacer()
+                    .frame(height: 32)
+                ShoeDetailsTitlePriceView()
+                HStack {
+                    ShoeDetailsStarsView()
+                    Spacer()
                 }
                 Spacer()
             }

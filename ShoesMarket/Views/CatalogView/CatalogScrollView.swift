@@ -38,7 +38,7 @@ struct CatalogScrollView: View {
                         }
                 }
             }
-            .padding(EdgeInsets(top: 0, leading: idealOffset, bottom: 32, trailing: idealOffset))
+            .padding(EdgeInsets(top: 0, leading: idealOffset, bottom: 0, trailing: idealOffset))
             .onReceive(proxy.offset, perform: { offsetX = $0.x })
             .onAppear {
                 scrollDelegate.onEndDecelerating = {
