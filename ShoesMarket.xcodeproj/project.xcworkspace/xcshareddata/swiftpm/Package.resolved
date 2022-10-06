@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "scrollviewproxy",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Amzd/ScrollViewProxy",
+      "state" : {
+        "revision" : "c6cae5aabfd1dcb22f581b18454c7f4b7362c098",
+        "version" : "1.0.3"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/SwiftUI-Introspect.git",
+      "state" : {
+        "revision" : "f2616860a41f9d9932da412a8978fec79c06fe24",
+        "version" : "0.1.4"
+      }
+    }
+  ],
+  "version" : 2
+}
