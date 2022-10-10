@@ -8,20 +8,33 @@
 import SwiftUI
 
 struct ShoeDetailsSizeView: View {
-    @State private var textColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
-    @State private var tintColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
-    private let backgroundColor: Color = Color.white
+    @State private var textColor: Color
+    @State private var tintColor: Color
+    @State private var backgroundColor: Color
 
-    @State private var sizes: [String] = ["41", "42", "43.5", "45"]
+    @State private var sizes: [String]
     @State private var selectedIndex: Int = 0
     @State private var touchDownIndex: Int? = nil
 
 
+    init(
+        sizes: [String] = [],
+        textColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255),
+        tintColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255),
+        backgroundColor: Color = Color.white
+    ) {
+        self.sizes = sizes
+        self.textColor = textColor
+        self.tintColor = tintColor
+        self.backgroundColor = backgroundColor
+    }
+
+
     var body: some View {
         VStack(alignment: .leading) {
-            Text("SIZES")
+            Text("РАЗМЕР")
                 .multilineTextAlignment(TextAlignment.leading)
-                .foregroundColor(backgroundColor)
+                .foregroundColor(Color.white)
                 .bold()
             HStack(spacing: Constants.spacing) {
                 ForEach(sizes.indices, id: \.self) { index in
@@ -29,7 +42,7 @@ struct ShoeDetailsSizeView: View {
                         RoundedRectangle(cornerRadius: Constants.cornerRadius)
                             .foregroundColor(getItemColor(index: index))
                         Text(sizes[index])
-                            .foregroundColor(textColor)
+                            .foregroundColor(index == selectedIndex ? textColor : Color.white)
                             .bold()
                     }
                     .frame(width: Constants.itemSize, height: Constants.itemSize)

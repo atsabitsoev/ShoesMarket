@@ -8,30 +8,40 @@
 import SwiftUI
 
 struct CatalogItemView: View {
+    @Binding private var item: Product
     @State private var textColor = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
+
+    private let errorImage = UIImage(systemName: "heart")!
+
+
+    init(item: Binding<Product>) {
+        self._item = item
+    }
 
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: Constants.cornerRadius)
+            RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
                 .foregroundColor(Color.white)
             VStack(spacing: Constants.spacing) {
                 HStack {
-                    Text("NIKE AIR")
+                    Text(item.title.uppercased())
                         .multilineTextAlignment(TextAlignment.leading)
                         .bold()
                         .foregroundColor(textColor)
                     Spacer()
                 }
                 HStack {
-                    Text("AIR JORDAN 1 MID SE")
-                        .multilineTextAlignment(TextAlignment.leading)
+                    Text(item.subtitle.uppercased())
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
+                        .truncationMode(.middle)
                         .bold()
                         .foregroundColor(textColor)
                     Spacer()
                 }
                 HStack {
-                    Text("$899")
+                    Text(item.costLabel)
                         .multilineTextAlignment(TextAlignment.leading)
                         .bold()
                         .foregroundColor(textColor)
@@ -39,8 +49,10 @@ struct CatalogItemView: View {
                 }
                 Spacer()
                 HStack {
-                    Text("NIKE\nAIR")
+                    Text(item.title.uppercased())
+                        .lineLimit(2)
                         .multilineTextAlignment(TextAlignment.leading)
+                        .minimumScaleFactor(0.5)
                         .font(Font(CTFont(.label, size: 72)))
                         .foregroundColor(Color(white: 0.9))
                         .bold()
@@ -53,13 +65,16 @@ struct CatalogItemView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    CatalogAddButton {
+                    CatalogAddButton(
+                        plusColor: getAddButtonPlusColor(),
+                        backgroundColor: getAddButtonBgColor()
+                    ) {
                         print("hello")
                     }
                     .frame(width: 80, height: 80)
                 }
             }
-            Image("nikeShoe")
+            Image(uiImage: item.variants.first?.mainImage ?? errorImage)
                 .resizable()
                 .scaledToFit()
                 .rotationEffect(Constants.shoeRotation)
@@ -68,6 +83,19 @@ struct CatalogItemView: View {
                 .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 20)
         }
         .frame(width: Constants.width, height: Constants.height)
+    }
+}
+
+
+private extension CatalogItemView {
+    func getAddButtonPlusColor() -> Color {
+        guard let firstItemVariant = item.variants.first else { return .black }
+        return firstItemVariant.backgroundColor
+    }
+
+    func getAddButtonBgColor() -> Color {
+        guard let firstItemVariant = item.variants.first else { return .black }
+        return firstItemVariant.mainColor
     }
 }
 
@@ -87,8 +115,21 @@ extension CatalogItemView {
 
 struct CatalogItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CatalogItemView()
-            .background(Color.init(white: 0.1))
-            .previewLayout(PreviewLayout.sizeThatFits)
+        CatalogItemView(item: .constant(Product(
+            id: "2",
+            title: "Nike air",
+            subtitle: "air jordan 1 retro high",
+            cost: 1099,
+            raiting: 3.5,
+            variants: [
+                Product.Variant(
+                    mainImage: UIImage(named: "redShoe")!,
+                    images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
+                    sizes: ["41", "42", "43.5", "45"]
+                )
+            ]
+        )))
+        .background(Color.init(white: 0.1))
+        .previewLayout(PreviewLayout.sizeThatFits)
     }
 }

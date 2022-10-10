@@ -8,21 +8,29 @@
 import SwiftUI
 
 struct ShoeDetailsTitlePriceView: View {
+    @Binding private var item: Product
+
+
+    init(item: Binding<Product> = .constant(.mock)) {
+        self._item = item
+    }
+
+
     var body: some View {
         VStack(spacing: 8) {
             HStack {
-                Text("NIKE AIR")
+                Text(item.title.uppercased())
                     .multilineTextAlignment(TextAlignment.leading)
                     .bold()
                 Spacer()
             }
             HStack {
-                Text("AIR JORDAN 1 MID SE")
+                Text(item.subtitle.uppercased())
                     .multilineTextAlignment(TextAlignment.leading)
                     .font(Font.title2)
                     .bold()
                 Spacer()
-                Text("$899")
+                Text(item.costLabel)
                     .multilineTextAlignment(TextAlignment.leading)
                     .font(Font.title2)
                     .bold()

@@ -11,16 +11,23 @@ import ScrollViewProxy
 
 struct CatalogScrollView: View {
     @State private var offsetX: CGFloat = 0
-    @State private var items: [Int] = [0, 1, 2, 3, 4, 5]
+    @Binding private var items: [Product]
 
 
     private let scrollDelegate: CatalogScrollViewDelegate = CatalogScrollViewDelegate()
     private let idealOffset: CGFloat = (UIScreen.main.bounds.width - CatalogItemView.Constants.width) / 2
 
+    private let onItemChange: (Int) -> Void
     private let onItemTap: (Int) -> Void
 
 
-    init(onItemTap: @escaping (Int) -> Void) {
+    init(
+        items: Binding<[Product]>,
+        onItemChange: @escaping (Int) -> Void,
+        onItemTap: @escaping (Int) -> Void
+    ) {
+        self._items = items
+        self.onItemChange = onItemChange
         self.onItemTap = onItemTap
     }
 
@@ -28,8 +35,8 @@ struct CatalogScrollView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) { proxy in
             LazyHStack(alignment: .center, spacing: Constants.spacing) {
-                ForEach(items, id: \.description) { index in
-                    CatalogItemView()
+                ForEach(items.indices, id: \.self) { index in
+                    CatalogItemView(item: .constant(items[index]))
                         .scaleEffect(getItemScale(index: index))
                         .blur(radius: abs(getItemScale(index: index) - 1) * 10)
                         .scrollId(index)
@@ -44,11 +51,15 @@ struct CatalogScrollView: View {
                 scrollDelegate.onEndDecelerating = {
                     let maxOffsetX: CGFloat = CGFloat(items.count - 1) * (CatalogItemView.Constants.width + Constants.spacing)
                     guard offsetX >= 0 && offsetX <= maxOffsetX else { return }
-                    proxy.scrollTo(getIndexBy(offsetX))
+                    let index: Int = getIndexBy(offsetX)
+                    onItemChange(index)
+                    proxy.scrollTo(index)
                 }
                 scrollDelegate.onEndDragging = { willDecelerate in
                     if !willDecelerate {
-                        proxy.scrollTo(getIndexBy(offsetX))
+                        let index: Int = getIndexBy(offsetX)
+                        onItemChange(index)
+                        proxy.scrollTo(index)
                     }
                 }
             }
@@ -103,9 +114,41 @@ private extension CatalogScrollView {
 
 struct CatalogScrollView_Previews: PreviewProvider {
     static var previews: some View {
-        CatalogScrollView(onItemTap: { index in
-            print(index)
-        })
+        CatalogScrollView(
+            items: Binding<[Product]>.constant([
+                Product(
+                    id: "1",
+                    title: "Nike air",
+                    subtitle: "air jordan 1 mid se",
+                    cost: 899,
+                    raiting: 3.5,
+                    variants: [
+                        Product.Variant(
+                            mainImage: UIImage(named: "nikeShoe")!,
+                            images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
+                            sizes: ["41", "42", "43.5", "45"]
+                        )
+                    ]
+                ),
+                Product(
+                    id: "2",
+                    title: "Nike air",
+                    subtitle: "air jordan 1 retro high",
+                    cost: 1099,
+                    raiting: 3.5,
+                    variants: [
+                        Product.Variant(
+                            mainImage: UIImage(named: "redShoe")!,
+                            images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
+                            sizes: ["41", "42", "43.5", "45"]
+                        )
+                    ]
+                )
+            ]),
+            onItemChange: { index in },
+            onItemTap: { index in
+                print(index)
+            })
             .background(Color(white: 0.1))
             .previewLayout(.sizeThatFits)
     }

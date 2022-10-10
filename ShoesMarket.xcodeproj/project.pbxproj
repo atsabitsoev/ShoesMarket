@@ -13,6 +13,10 @@
 		AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */ = {isa = PBXBuildFile; productRef = AC4412FF28EB907800DCBE2E /* ScrollViewProxy */; };
 		AC4C991928EE42340078001F /* ShoeDetailsPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */; };
 		AC4C991B28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */; };
+		AC514C2128F3D4A2001DA372 /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC514C2028F3D4A2001DA372 /* UIImageColors.swift */; };
+		AC514C2328F3E4B0001DA372 /* CatalogBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */; };
+		AC669C0728F2A2600039B542 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC669C0628F2A2600039B542 /* Product.swift */; };
+		AC669C0A28F2A4900039B542 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC669C0928F2A4900039B542 /* Color+Extension.swift */; };
 		ACB838B728EC9AA300C01673 /* CatalogCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */; };
 		ACB838BA28ECA6AB00C01673 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B928ECA6AB00C01673 /* CornerRadius.swift */; };
 		ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */; };
@@ -37,6 +41,10 @@
 		AC0C8DDD28EF8B27003662D0 /* ShoeDetailsSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsSizeView.swift; sourceTree = "<group>"; };
 		AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotosView.swift; sourceTree = "<group>"; };
 		AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotoIndicatorView.swift; sourceTree = "<group>"; };
+		AC514C2028F3D4A2001DA372 /* UIImageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
+		AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogBackground.swift; sourceTree = "<group>"; };
+		AC669C0628F2A2600039B542 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		AC669C0928F2A4900039B542 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCategoriesView.swift; sourceTree = "<group>"; };
 		ACB838B928ECA6AB00C01673 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAddButton.swift; sourceTree = "<group>"; };
@@ -86,6 +94,22 @@
 			path = SMTabBar;
 			sourceTree = "<group>";
 		};
+		AC669C0528F2A2330039B542 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC669C0628F2A2600039B542 /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC669C0828F2A47F0039B542 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC669C0928F2A4900039B542 /* Color+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		ACB838B828ECA68000C01673 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE23AEF28E64A46009D9E08 /* CatalogView.swift */,
+				AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */,
 				ACE23AF328E65DE2009D9E08 /* CatalogNavigationView.swift */,
 				ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */,
 				ACE23AF528E66B8D009D9E08 /* CatalogItemView.swift */,
@@ -142,6 +167,9 @@
 		ACF8509228E604D50053BE2F /* ShoesMarket */ = {
 			isa = PBXGroup;
 			children = (
+				AC514C2028F3D4A2001DA372 /* UIImageColors.swift */,
+				AC669C0828F2A47F0039B542 /* Extensions */,
+				AC669C0528F2A2330039B542 /* Models */,
 				ACF850A328E60BCD0053BE2F /* Views */,
 				ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */,
 				ACF8509728E604D60053BE2F /* Assets.xcassets */,
@@ -247,6 +275,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE23AF828E66FC1009D9E08 /* CatalogScrollView.swift in Sources */,
+				AC514C2128F3D4A2001DA372 /* UIImageColors.swift in Sources */,
+				AC669C0A28F2A4900039B542 /* Color+Extension.swift in Sources */,
 				ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */,
 				AC0C8DDC28EF7DF4003662D0 /* ShoeDetailsStarsView.swift in Sources */,
 				ACB838B728EC9AA300C01673 /* CatalogCategoriesView.swift in Sources */,
@@ -263,8 +293,10 @@
 				AC0C8DDE28EF8B27003662D0 /* ShoeDetailsSizeView.swift in Sources */,
 				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,
 				AC4C991B28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift in Sources */,
+				AC669C0728F2A2600039B542 /* Product.swift in Sources */,
 				ACB838C528ECD40600C01673 /* ShoeDetailsNavigationView.swift in Sources */,
 				ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */,
+				AC514C2328F3E4B0001DA372 /* CatalogBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

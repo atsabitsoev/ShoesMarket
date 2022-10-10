@@ -12,21 +12,21 @@ struct SMTabBarItem: View {
     
 
     @Binding var isSelected: Bool
-    @State private(set) var selectedColor: Color
-    @State private(set) var unSelectedColor: Color
+    @Binding private var selectedColor: Color
+    @Binding private var unSelectedColor: Color
 
 
     init(
         iconName: String,
         isSelected: Binding<Bool> = .constant(false),
-        selectedColor: Color,
-        unSelectedColor: Color
+        selectedColor: Binding<Color>,
+        unSelectedColor: Binding<Color>
     ) {
         self.iconName = iconName
 
         self._isSelected = isSelected
-        self.selectedColor = selectedColor
-        self.unSelectedColor = unSelectedColor
+        self._selectedColor = selectedColor
+        self._unSelectedColor = unSelectedColor
     }
 
     var body: some View {
@@ -53,8 +53,8 @@ struct SMTabBarItem_Previews: PreviewProvider {
     static var previews: some View {
         SMTabBarItem(
             iconName: "home",
-            selectedColor: Color.yellow,
-            unSelectedColor: Color(white: 0.15)
+            selectedColor: .constant(Color.yellow),
+            unSelectedColor: .constant(Color(white: 0.15))
         )
         .previewLayout(PreviewLayout.sizeThatFits)
     }

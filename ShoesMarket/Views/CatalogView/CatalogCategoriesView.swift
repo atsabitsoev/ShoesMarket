@@ -12,11 +12,20 @@ struct CatalogCategoriesView: View {
     @State private var selectedIndex: Int = 0
     @State private var offsetX: CGFloat = 0
 
-    @State private(set) var secondaryColor: Color = Color(white: 0.6)
-    @State private(set) var selectionColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
+    @Binding private var secondaryColor: Color
+    @Binding private var selectionColor: Color
 
 
     private let scrollDelegate = CategoriesScrollViewDelegate()
+
+
+    init(
+        selectionColor: Binding<Color> = .constant(Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)),
+        secondaryColor: Binding<Color> = .constant(Color(white: 0.6))
+    ) {
+        self._selectionColor = selectionColor
+        self._secondaryColor = secondaryColor
+    }
 
 
     var body: some View {

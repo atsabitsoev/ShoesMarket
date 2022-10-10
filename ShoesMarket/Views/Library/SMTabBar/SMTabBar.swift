@@ -10,14 +10,22 @@ import SwiftUI
 struct SMTabBar: View {
     @State var selectedItem: Int = 0
 
-    @State private(set) var tintColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
-    @State private(set) var backgroundColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
-
     @State private var circlePosition: CGPoint = .zero
 
+    @Binding private var tintColor: Color
+    @Binding private var backgroundColor: Color
 
     private let icons: [String] = ["home", "circle", "user"]
     private let totalItems: Int = 3
+
+
+    init(
+        tintColor: Binding<Color> = .constant(Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)),
+        backgroundColor: Binding<Color> = .constant(Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255))
+    ) {
+        self._tintColor = tintColor
+        self._backgroundColor = backgroundColor
+    }
 
 
     var body: some View {
@@ -39,8 +47,8 @@ struct SMTabBar: View {
                     SMTabBarItem(
                         iconName: icons[id],
                         isSelected: checkSelectionBinding(item: id),
-                        selectedColor: backgroundColor,
-                        unSelectedColor: tintColor
+                        selectedColor: $backgroundColor,
+                        unSelectedColor: $tintColor
                     )
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .contentShape(Rectangle())

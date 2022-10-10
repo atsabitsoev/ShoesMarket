@@ -10,19 +10,22 @@ import SwiftUI
 struct ShoeDetailsView: View {
     @Environment(\.dismiss) private var dismiss
     @GestureState private var dragOffset = CGSize.zero
-    @State private(set) var backgroundColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
-    @State private(set) var tintColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
 
     @State private var selectedPhotoIndex: Int = 0
-    @State private var images: [UIImage] = [UIImage(named: "nikeShoe")!, UIImage(named: "shoesPhoto")!, UIImage(named: "runningPhoto")!]
+    @Binding private var item: Product
+
+
+    init(item: Binding<Product> = .constant(.mock)) {
+        self._item = item
+    }
 
 
     var body: some View {
         ZStack {
-            backgroundColor
+            (item.variants.first?.detailColor ?? .black)
                 .ignoresSafeArea()
             Circle()
-                .foregroundColor(tintColor)
+                .foregroundColor(item.variants.first?.mainColor ?? .black)
                 .frame(width: UIScreen.main.bounds.width * 1.2)
                 .position(x: UIScreen.main.bounds.width / 9 * 8, y: 80)
             VStack {
@@ -30,19 +33,19 @@ struct ShoeDetailsView: View {
                 GeometryReader { geo in
                     VStack(spacing: 16) {
                         ZStack {
-                            Text("NIKE AIR")
+                            Text(item.title.uppercased())
                                 .font(Font.system(size: UIScreen.main.bounds.width / 5))
                                 .foregroundColor(Color.white)
                                 .bold()
-                            ShoeDetailsPhotosView($selectedPhotoIndex)
+                            ShoeDetailsPhotosView($selectedPhotoIndex, images: [item.variants[0].mainImage] + item.variants[0].images)
                         }
-                        ShoeDetailsPhotoIndicatorView($selectedPhotoIndex, totalItems: images.count)
+                        ShoeDetailsPhotoIndicatorView($selectedPhotoIndex, totalItems: item.variants[0].images.count + 1)
                     }
                     .frame(width: geo.size.width, height: geo.size.height)
                 }
                 Spacer()
                     .frame(height: 32)
-                ShoeDetailsTitlePriceView()
+                ShoeDetailsTitlePriceView(item: $item)
                 HStack {
                     ShoeDetailsStarsView()
                     Spacer()
@@ -50,7 +53,12 @@ struct ShoeDetailsView: View {
                 Spacer()
                     .frame(height: 32)
                 HStack {
-                    ShoeDetailsSizeView()
+                    ShoeDetailsSizeView(
+                        sizes: item.variants[0].sizes,
+                        textColor: item.variants[0].mainColor,
+                        tintColor: item.variants[0].backgroundColor,
+                        backgroundColor: item.variants[0].mainColor
+                    )
                     Spacer()
                 }
                 Spacer()
@@ -58,9 +66,11 @@ struct ShoeDetailsView: View {
                 HStack(alignment: .bottom) {
                     ShoeDetailsColorsView()
                     Spacer()
-                    ShoeDetailsBuyButton {
-                        print("BUY")
-                    }
+                    ShoeDetailsBuyButton(
+                        textColor: item.variants[0].backgroundColor,
+                        tintColor: item.variants[0].mainColor) {
+                            print("Buy!")
+                        }
                 }
                 Spacer()
                     .frame(height: 32)
