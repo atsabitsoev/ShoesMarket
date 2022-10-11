@@ -11,9 +11,9 @@
 		AC0C8DDC28EF7DF4003662D0 /* ShoeDetailsStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C8DDB28EF7DF4003662D0 /* ShoeDetailsStarsView.swift */; };
 		AC0C8DDE28EF8B27003662D0 /* ShoeDetailsSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C8DDD28EF8B27003662D0 /* ShoeDetailsSizeView.swift */; };
 		AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */ = {isa = PBXBuildFile; productRef = AC4412FF28EB907800DCBE2E /* ScrollViewProxy */; };
+		AC441EE728F53F430050C57F /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = AC441EE628F53F430050C57F /* ColorKit */; };
 		AC4C991928EE42340078001F /* ShoeDetailsPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */; };
 		AC4C991B28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */; };
-		AC514C2128F3D4A2001DA372 /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC514C2028F3D4A2001DA372 /* UIImageColors.swift */; };
 		AC514C2328F3E4B0001DA372 /* CatalogBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */; };
 		AC669C0728F2A2600039B542 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC669C0628F2A2600039B542 /* Product.swift */; };
 		AC669C0A28F2A4900039B542 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC669C0928F2A4900039B542 /* Color+Extension.swift */; };
@@ -41,7 +41,6 @@
 		AC0C8DDD28EF8B27003662D0 /* ShoeDetailsSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsSizeView.swift; sourceTree = "<group>"; };
 		AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotosView.swift; sourceTree = "<group>"; };
 		AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotoIndicatorView.swift; sourceTree = "<group>"; };
-		AC514C2028F3D4A2001DA372 /* UIImageColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
 		AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogBackground.swift; sourceTree = "<group>"; };
 		AC669C0628F2A2600039B542 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AC669C0928F2A4900039B542 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */,
+				AC441EE728F53F430050C57F /* ColorKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +167,6 @@
 		ACF8509228E604D50053BE2F /* ShoesMarket */ = {
 			isa = PBXGroup;
 			children = (
-				AC514C2028F3D4A2001DA372 /* UIImageColors.swift */,
 				AC669C0828F2A47F0039B542 /* Extensions */,
 				AC669C0528F2A2330039B542 /* Models */,
 				ACF850A328E60BCD0053BE2F /* Views */,
@@ -216,6 +215,7 @@
 			name = ShoesMarket;
 			packageProductDependencies = (
 				AC4412FF28EB907800DCBE2E /* ScrollViewProxy */,
+				AC441EE628F53F430050C57F /* ColorKit */,
 			);
 			productName = ShoesMarket;
 			productReference = ACF8509028E604D50053BE2F /* ShoesMarket.app */;
@@ -247,6 +247,7 @@
 			mainGroup = ACF8508728E604D50053BE2F;
 			packageReferences = (
 				AC4412FE28EB907800DCBE2E /* XCRemoteSwiftPackageReference "ScrollViewProxy" */,
+				AC441EE528F53F430050C57F /* XCRemoteSwiftPackageReference "ColorKit" */,
 			);
 			productRefGroup = ACF8509128E604D50053BE2F /* Products */;
 			projectDirPath = "";
@@ -275,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE23AF828E66FC1009D9E08 /* CatalogScrollView.swift in Sources */,
-				AC514C2128F3D4A2001DA372 /* UIImageColors.swift in Sources */,
 				AC669C0A28F2A4900039B542 /* Color+Extension.swift in Sources */,
 				ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */,
 				AC0C8DDC28EF7DF4003662D0 /* ShoeDetailsStarsView.swift in Sources */,
@@ -520,6 +520,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		AC441EE528F53F430050C57F /* XCRemoteSwiftPackageReference "ColorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Boris-Em/ColorKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -527,6 +535,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC4412FE28EB907800DCBE2E /* XCRemoteSwiftPackageReference "ScrollViewProxy" */;
 			productName = ScrollViewProxy;
+		};
+		AC441EE628F53F430050C57F /* ColorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC441EE528F53F430050C57F /* XCRemoteSwiftPackageReference "ColorKit" */;
+			productName = ColorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -16,29 +16,30 @@ struct CatalogView: View {
     @State private var backgroundColor = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
     @State private var secondaryColor = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
     @State private var detailColor = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
+    @State private var averageColor: Color = .cyan
 
 
     var body: some View {
         NavigationStack {
             ZStack {
-                CatalogBackground($detailColor)
+                CatalogBackground($mainColor)
                     .ignoresSafeArea()
                 VStack {
                     CatalogNavigationView()
                     Spacer()
                     CatalogCategoriesView(
-                        selectionColor: $backgroundColor,
+                        selectionColor: $detailColor,
                         secondaryColor: $secondaryColor
                     )
                     Spacer()
                     CatalogScrollView(items: $products) { newIndex in
-                        if let currentProductVariant = products[newIndex].variants.first {
-                            withAnimation {
-                                mainColor = currentProductVariant.mainColor
-                                backgroundColor = currentProductVariant.backgroundColor
-                                detailColor = currentProductVariant.detailColor
-                                secondaryColor = currentProductVariant.secondaryColor
-                            }
+                        let currentProductVariant = products[newIndex].variants[0]
+                        withAnimation {
+                            mainColor = currentProductVariant.themeColors.mainColor
+                            backgroundColor = currentProductVariant.themeColors.backgroundColor
+                            detailColor = currentProductVariant.themeColors.detailColor
+                            secondaryColor = currentProductVariant.themeColors.secondaryColor
+                            averageColor = currentProductVariant.themeColors.averageColor
                         }
                     } onItemTap: { index in
                         tappedProduct = products[index]
@@ -47,8 +48,8 @@ struct CatalogView: View {
 
                     Spacer()
                     SMTabBar(
-                        tintColor: $mainColor,
-                        backgroundColor: $backgroundColor
+                        tintColor: $detailColor,
+                        backgroundColor: $secondaryColor
                     )
                 }
             }
@@ -59,13 +60,14 @@ struct CatalogView: View {
         }
         .task {
             products = await Product.all
-            if let firstProductVariant = products.first?.variants.first {
-                withAnimation {
-                    mainColor = firstProductVariant.mainColor
-                    backgroundColor = firstProductVariant.backgroundColor
-                    detailColor = firstProductVariant.detailColor
-                    secondaryColor = firstProductVariant.secondaryColor
-                }
+            guard !products.isEmpty else { return }
+            let firstProductVariant = products[0].variants[0]
+            withAnimation {
+                mainColor = firstProductVariant.themeColors.mainColor
+                backgroundColor = firstProductVariant.themeColors.backgroundColor
+                detailColor = firstProductVariant.themeColors.detailColor
+                secondaryColor = firstProductVariant.themeColors.secondaryColor
+                averageColor = firstProductVariant.themeColors.averageColor
             }
         }
     }

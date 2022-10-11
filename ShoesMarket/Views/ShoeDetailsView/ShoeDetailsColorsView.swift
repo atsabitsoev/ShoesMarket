@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct ShoeDetailsColorsView: View {
-    @State private var colors: [Color] = [Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255), Color.green, Color.blue]
-    @State private var selectedIndex: Int = 0
+    @State private var colors: [Color]
+    @Binding private var selectedIndex: Int
 
 
     private let textColor = Color.white
     private let borderColor = Color.white
+
+
+    init(
+        colors: [Color] = [
+            Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255),
+            Color.green,
+            Color.blue
+        ],
+        selectedIndex: Binding<Int> = .constant(0)
+    ) {
+        self._selectedIndex = selectedIndex
+        self.colors = colors
+    }
 
 
     var body: some View {

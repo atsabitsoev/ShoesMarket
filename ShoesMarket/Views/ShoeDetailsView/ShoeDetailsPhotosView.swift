@@ -9,15 +9,15 @@ import SwiftUI
 
 struct ShoeDetailsPhotosView: View {
     @Binding private var selectedIndex: Int
-    @State private var images: [UIImage]
+    @Binding private var images: [UIImage]
 
 
     init(
         _ selection: Binding<Int>,
-        images: [UIImage] = [UIImage(named: "nikeShoe")!, UIImage(named: "shoesPhoto")!, UIImage(named: "runningPhoto")!])
+        images: Binding<[UIImage]> = .constant([UIImage(named: "nikeShoe")!, UIImage(named: "shoesPhoto")!, UIImage(named: "runningPhoto")!]))
     {
         self._selectedIndex = selection
-        self.images = images
+        self._images = images
     }
 
 

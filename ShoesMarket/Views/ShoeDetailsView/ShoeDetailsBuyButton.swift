@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct ShoeDetailsBuyButton: View {
-    @State private var textColor: Color
-    @State private var tintColor: Color
+    @Binding private var textColor: Color
+    @Binding private var tintColor: Color
 
     
     private let action: () -> Void
 
 
     init(
-        textColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255),
-        tintColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255),
+        textColor: Binding<Color> = .constant(Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)),
+        tintColor: Binding<Color> = .constant(Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)),
         _ action: @escaping () -> Void
     ) {
-        self.textColor = textColor
-        self.tintColor = tintColor
+        self._textColor = textColor
+        self._tintColor = tintColor
         self.action = action
     }
 

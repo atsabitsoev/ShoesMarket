@@ -8,24 +8,24 @@
 import SwiftUI
 
 struct ShoeDetailsSizeView: View {
-    @State private var textColor: Color
-    @State private var tintColor: Color
+    @Binding private var textColor: Color
+    @Binding private var tintColor: Color
     @State private var backgroundColor: Color
 
-    @State private var sizes: [String]
+    @Binding private var sizes: [String]
     @State private var selectedIndex: Int = 0
     @State private var touchDownIndex: Int? = nil
 
 
     init(
-        sizes: [String] = [],
-        textColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255),
-        tintColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255),
+        sizes: Binding<[String]> = .constant([]),
+        textColor: Binding<Color> = .constant(Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)),
+        tintColor: Binding<Color> = .constant(Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)),
         backgroundColor: Color = Color.white
     ) {
-        self.sizes = sizes
-        self.textColor = textColor
-        self.tintColor = tintColor
+        self._sizes = sizes
+        self._textColor = textColor
+        self._tintColor = tintColor
         self.backgroundColor = backgroundColor
     }
 
@@ -42,7 +42,7 @@ struct ShoeDetailsSizeView: View {
                         RoundedRectangle(cornerRadius: Constants.cornerRadius)
                             .foregroundColor(getItemColor(index: index))
                         Text(sizes[index])
-                            .foregroundColor(index == selectedIndex ? textColor : Color.white)
+                            .foregroundColor(index == selectedIndex ? textColor : tintColor)
                             .bold()
                     }
                     .frame(width: Constants.itemSize, height: Constants.itemSize)

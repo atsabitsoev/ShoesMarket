@@ -90,12 +90,12 @@ struct CatalogItemView: View {
 private extension CatalogItemView {
     func getAddButtonPlusColor() -> Color {
         guard let firstItemVariant = item.variants.first else { return .black }
-        return firstItemVariant.backgroundColor
+        return firstItemVariant.themeColors.detailColor
     }
 
     func getAddButtonBgColor() -> Color {
         guard let firstItemVariant = item.variants.first else { return .black }
-        return firstItemVariant.mainColor
+        return firstItemVariant.themeColors.secondaryColor
     }
 }
 
@@ -125,7 +125,8 @@ struct CatalogItemView_Previews: PreviewProvider {
                 Product.Variant(
                     mainImage: UIImage(named: "redShoe")!,
                     images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
-                    sizes: ["41", "42", "43.5", "45"]
+                    sizes: ["41", "42", "43.5", "45"],
+                    shoeColor: .red
                 )
             ]
         )))

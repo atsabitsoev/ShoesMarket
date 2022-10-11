@@ -126,7 +126,8 @@ struct CatalogScrollView_Previews: PreviewProvider {
                         Product.Variant(
                             mainImage: UIImage(named: "nikeShoe")!,
                             images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
-                            sizes: ["41", "42", "43.5", "45"]
+                            sizes: ["41", "42", "43.5", "45"],
+                            shoeColor: .yellow
                         )
                     ]
                 ),
@@ -140,7 +141,8 @@ struct CatalogScrollView_Previews: PreviewProvider {
                         Product.Variant(
                             mainImage: UIImage(named: "redShoe")!,
                             images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
-                            sizes: ["41", "42", "43.5", "45"]
+                            sizes: ["41", "42", "43.5", "45"],
+                            shoeColor: .red
                         )
                     ]
                 )
