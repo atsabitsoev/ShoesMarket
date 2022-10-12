@@ -32,9 +32,9 @@ struct ShoeDetailsBuyButton: View {
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
-                    .frame(width: 100, height: 64)
+                    .frame(width: 150, height: 64)
                     .foregroundColor(tintColor)
-                Text("BUY")
+                Text("В КОРЗИНУ")
                     .bold()
                     .padding(8)
                     .foregroundColor(textColor)

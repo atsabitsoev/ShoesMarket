@@ -17,6 +17,7 @@ struct Product {
     let cost: Int
     let raiting: CGFloat
     let variants: [Variant]
+    let categories: [String]
 
     var costLabel: String {
         "\(cost)₽"
@@ -84,7 +85,8 @@ struct Product {
                 sizes: ["41", "42", "43.5", "45"],
                 shoeColor: .red
             )
-        ]
+        ],
+        categories: ["1"]
     )
 }
 
@@ -105,11 +107,12 @@ private extension Product {
                         sizes: ["41", "43.5", "45"],
                         shoeColor: .yellow
                     )
-                ]
+                ],
+                categories: ["1", "3"]
             ),
             Product(
-                id: "4",
-                title: "Nike air",
+                id: "3.2",
+                title: "Nike dunk",
                 subtitle: "air force 1 low",
                 cost: 2599,
                 raiting: 3.5,
@@ -126,7 +129,24 @@ private extension Product {
                         sizes: ["41", "42", "43.5", "45"],
                         shoeColor: .red
                     )
-                ]
+                ],
+                categories: ["2", "4"]
+            ),
+            Product(
+                id: "5",
+                title: "Nike air",
+                subtitle: "dunk low",
+                cost: 5479,
+                raiting: 3.5,
+                variants: [
+                    Variant(
+                        mainImage: UIImage(named: "grayShoe")!,
+                        images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
+                        sizes: ["42", "43", "44"],
+                        shoeColor: .gray
+                    )
+                ],
+                categories: ["1", "4"]
             ),
             Product(
                 id: "2",
@@ -136,28 +156,49 @@ private extension Product {
                 raiting: 3.5,
                 variants: [
                     Variant(
+                        mainImage: UIImage(named: "blueShoe")!,
+                        images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
+                        sizes: ["41", "42", "43.5"],
+                        shoeColor: .blue
+                    ),
+                    Variant(
                         mainImage: UIImage(named: "redShoe")!,
                         images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
                         sizes: ["41", "42", "44", "45"],
                         shoeColor: .red
                     )
-                ]
+                ],
+                categories: ["2"]
             ),
             Product(
-                id: "3",
-                title: "Nike air",
-                subtitle: "air jordan 1 high university",
-                cost: 1099,
-                raiting: 3.5,
+                id: "6",
+                title: "Nike court",
+                subtitle: "court vision low",
+                cost: 2799,
+                raiting: 3,
                 variants: [
                     Variant(
-                        mainImage: UIImage(named: "blueShoe")!,
-                        images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
-                        sizes: ["41", "42", "43.5"],
-                        shoeColor: .blue
+                        mainImage: UIImage(named: "whiteShoe")!,
+                        images: ["runningPhoto"].map(UIImage.init),
+                        sizes: ["41", "42", "43.5", "44", "45"],
+                        shoeColor: .white
+                    ),
+                    Variant(
+                        mainImage: UIImage(named: "grayShoe")!,
+                        images: ["shoesPhoto"].map(UIImage.init),
+                        sizes: ["41", "42", "43.5", "45"],
+                        shoeColor: .gray
                     )
-                ]
+                ],
+                categories: ["1", "3"]
             )
         ]
+    }
+}
+
+
+extension Product: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
     }
 }

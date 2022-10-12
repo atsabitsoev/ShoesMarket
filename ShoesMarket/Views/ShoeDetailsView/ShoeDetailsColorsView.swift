@@ -30,12 +30,13 @@ struct ShoeDetailsColorsView: View {
 
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("COLOR")
+        VStack(alignment: .leading, spacing: 4) {
+            Text("ЦВЕТ")
                 .multilineTextAlignment(TextAlignment.leading)
                 .foregroundColor(textColor)
                 .bold()
-            HStack(spacing: Constants.spacing) {
+                .shadow(radius: 10)
+            HStack(spacing: 0) {
                 ForEach(colors.indices, id: \.self) { index in
                     ZStack {
                         if index == selectedIndex {
@@ -55,11 +56,14 @@ struct ShoeDetailsColorsView: View {
                         width: Constants.itemSize + Constants.borderSize,
                         height: Constants.itemSize + Constants.borderSize
                     )
+                    .contentShape(Rectangle())
+                    .padding(Constants.spacing / 2)
                     .onTapGesture {
                         selectedIndex = index
                     }
                 }
             }
+            .offset(CGSize(width: -Constants.spacing / 2, height: 0))
         }
         .padding(.horizontal, Constants.padding)
     }

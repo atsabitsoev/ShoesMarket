@@ -40,6 +40,7 @@ struct ShoeDetailsStarsView: View {
             }
         }
         .padding(.horizontal, 24)
+        .shadow(radius: 10)
     }
 }
 

@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct CatalogAddButton: View {
-    @State private(set) var plusColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
-    @State private(set) var backgroundColor: Color = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
+    @Binding private(set) var plusColor: Color
+    @Binding private(set) var backgroundColor: Color
 
 
     var action: () -> Void
+
+
+    init(
+        plusColor: Binding<Color> = .constant(Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)),
+        backgroundColor: Binding<Color> = .constant(Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)),
+        action: @escaping () -> Void
+    ) {
+        self._plusColor = plusColor
+        self._backgroundColor = backgroundColor
+        self.action = action
+    }
 
 
     var body: some View {

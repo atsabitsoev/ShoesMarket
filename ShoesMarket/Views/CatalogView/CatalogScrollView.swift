@@ -36,13 +36,16 @@ struct CatalogScrollView: View {
         ScrollView(.horizontal, showsIndicators: false) { proxy in
             LazyHStack(alignment: .center, spacing: Constants.spacing) {
                 ForEach(items.indices, id: \.self) { index in
-                    CatalogItemView(item: .constant(items[index]))
-                        .scaleEffect(getItemScale(index: index))
-                        .blur(radius: abs(getItemScale(index: index) - 1) * 10)
-                        .scrollId(index)
-                        .onTapGesture {
-                            onItemTap(index)
-                        }
+                    CatalogItemView(
+                        item: Binding(get: {
+                            print(items.count)
+                            return items[index]
+                        }, set: { _, _ in }),
+                        onItemTap: { onItemTap(index) }
+                    )
+                    .scaleEffect(getItemScale(index: index))
+                    .blur(radius: abs(getItemScale(index: index) - 1) * 10)
+                    .scrollId(index)
                 }
             }
             .padding(EdgeInsets(top: 0, leading: idealOffset, bottom: 0, trailing: idealOffset))
@@ -62,6 +65,9 @@ struct CatalogScrollView: View {
                         proxy.scrollTo(index)
                     }
                 }
+            }
+            .onChange(of: items) { newValue in
+                proxy.scrollTo(.leading, animated: false)
             }
         }
         .introspectScrollView { scrollView in
@@ -116,36 +122,8 @@ struct CatalogScrollView_Previews: PreviewProvider {
     static var previews: some View {
         CatalogScrollView(
             items: Binding<[Product]>.constant([
-                Product(
-                    id: "1",
-                    title: "Nike air",
-                    subtitle: "air jordan 1 mid se",
-                    cost: 899,
-                    raiting: 3.5,
-                    variants: [
-                        Product.Variant(
-                            mainImage: UIImage(named: "nikeShoe")!,
-                            images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
-                            sizes: ["41", "42", "43.5", "45"],
-                            shoeColor: .yellow
-                        )
-                    ]
-                ),
-                Product(
-                    id: "2",
-                    title: "Nike air",
-                    subtitle: "air jordan 1 retro high",
-                    cost: 1099,
-                    raiting: 3.5,
-                    variants: [
-                        Product.Variant(
-                            mainImage: UIImage(named: "redShoe")!,
-                            images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
-                            sizes: ["41", "42", "43.5", "45"],
-                            shoeColor: .red
-                        )
-                    ]
-                )
+                Product.mock,
+                Product.mock
             ]),
             onItemChange: { index in },
             onItemTap: { index in

@@ -9,7 +9,11 @@ import SwiftUI
 
 struct CatalogView: View {
     @State private var tappedProduct: Product = Product.mock
-    @State private var products: [Product] = []
+    @State private var allProducts: [Product] = []
+    @State private var shownProducts: [Product] = []
+    @State private var currentProductIndex: Int = 0
+    @State private var categories: [Category] = []
+    @State private var currentCategory: Category?
     @State private var isPresentedDetails: Bool = false
 
     @State private var mainColor = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
@@ -28,24 +32,21 @@ struct CatalogView: View {
                     CatalogNavigationView()
                     Spacer()
                     CatalogCategoriesView(
+                        categories: $categories,
                         selectionColor: $detailColor,
-                        secondaryColor: $secondaryColor
-                    )
-                    Spacer()
-                    CatalogScrollView(items: $products) { newIndex in
-                        let currentProductVariant = products[newIndex].variants[0]
-                        withAnimation {
-                            mainColor = currentProductVariant.themeColors.mainColor
-                            backgroundColor = currentProductVariant.themeColors.backgroundColor
-                            detailColor = currentProductVariant.themeColors.detailColor
-                            secondaryColor = currentProductVariant.themeColors.secondaryColor
-                            averageColor = currentProductVariant.themeColors.averageColor
+                        secondaryColor: $secondaryColor) { category in
+                            currentCategory = category
+                            currentProductIndex = 0
+                            updateShownProducts()
                         }
+                    Spacer()
+                    CatalogScrollView(items: $shownProducts) { newIndex in
+                        currentProductIndex = newIndex
+                        updateColors()
                     } onItemTap: { index in
-                        tappedProduct = products[index]
+                        tappedProduct = shownProducts[index]
                         isPresentedDetails = true
                     }
-
                     Spacer()
                     SMTabBar(
                         tintColor: $detailColor,
@@ -59,16 +60,46 @@ struct CatalogView: View {
             }
         }
         .task {
-            products = await Product.all
-            guard !products.isEmpty else { return }
-            let firstProductVariant = products[0].variants[0]
-            withAnimation {
-                mainColor = firstProductVariant.themeColors.mainColor
-                backgroundColor = firstProductVariant.themeColors.backgroundColor
-                detailColor = firstProductVariant.themeColors.detailColor
-                secondaryColor = firstProductVariant.themeColors.secondaryColor
-                averageColor = firstProductVariant.themeColors.averageColor
-            }
+            await loadProducts()
+        }
+        .task {
+            await loadCategories()
+        }
+    }
+}
+
+
+private extension CatalogView {
+    func loadProducts() async {
+        allProducts = await Product.all
+        currentProductIndex = 0
+        updateShownProducts()
+    }
+
+    func loadCategories() async {
+        categories = await Category.all
+        currentCategory = categories.first
+        updateShownProducts()
+    }
+
+    func updateShownProducts() {
+        if let currentCategory {
+            shownProducts = allProducts.filter({ return $0.categories.contains(currentCategory.id) })
+        } else {
+            shownProducts = allProducts
+        }
+        guard !shownProducts.isEmpty else { return }
+        updateColors()
+    }
+
+    func updateColors() {
+        let firstProductVariant = shownProducts[currentProductIndex].variants[0]
+        withAnimation {
+            mainColor = firstProductVariant.themeColors.mainColor
+            backgroundColor = firstProductVariant.themeColors.backgroundColor
+            detailColor = firstProductVariant.themeColors.detailColor
+            secondaryColor = firstProductVariant.themeColors.secondaryColor
+            averageColor = firstProductVariant.themeColors.averageColor
         }
     }
 }

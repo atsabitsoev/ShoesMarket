@@ -22,6 +22,7 @@ struct ShoeDetailsTitlePriceView: View {
                 Text(item.title.uppercased())
                     .multilineTextAlignment(TextAlignment.leading)
                     .bold()
+                    .shadow(radius: 10)
                 Spacer()
             }
             HStack {
@@ -29,11 +30,13 @@ struct ShoeDetailsTitlePriceView: View {
                     .multilineTextAlignment(TextAlignment.leading)
                     .font(Font.title2)
                     .bold()
+                    .shadow(radius: 10)
                 Spacer()
                 Text(item.costLabel)
                     .multilineTextAlignment(TextAlignment.leading)
                     .font(Font.title2)
                     .bold()
+                    .shadow(radius: 10)
             }
         }
         .foregroundColor(Color.white)

@@ -36,6 +36,7 @@ struct ShoeDetailsSizeView: View {
                 .multilineTextAlignment(TextAlignment.leading)
                 .foregroundColor(Color.white)
                 .bold()
+                .shadow(radius: 10)
             HStack(spacing: Constants.spacing) {
                 ForEach(sizes.indices, id: \.self) { index in
                     ZStack {

@@ -10,12 +10,18 @@ import SwiftUI
 struct CatalogItemView: View {
     @Binding private var item: Product
     @State private var textColor = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
+    @State private var touchDown: Bool = false
 
     private let errorImage = UIImage(systemName: "heart")!
+    private let onItemTap: () -> Void
 
 
-    init(item: Binding<Product>) {
+    init(
+        item: Binding<Product>,
+        onItemTap: @escaping () -> Void = {}
+    ) {
         self._item = item
+        self.onItemTap = onItemTap
     }
 
 
@@ -61,19 +67,6 @@ struct CatalogItemView: View {
                 Spacer()
             }
             .padding(Constants.padding)
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    CatalogAddButton(
-                        plusColor: getAddButtonPlusColor(),
-                        backgroundColor: getAddButtonBgColor()
-                    ) {
-                        print("hello")
-                    }
-                    .frame(width: 80, height: 80)
-                }
-            }
             Image(uiImage: item.variants.first?.mainImage ?? errorImage)
                 .resizable()
                 .scaledToFit()
@@ -81,8 +74,34 @@ struct CatalogItemView: View {
                 .frame(width: Constants.width)
                 .padding(.top, 40)
                 .shadow(color: Color.black.opacity(0.5), radius: 10, x: 10, y: 20)
+            Button(action: {
+                onItemTap()
+            }, label: { Color.clear })
+            ._onButtonGesture(pressing: { val in
+                withAnimation(Animation.easeInOut(duration: 0.2)) {
+                    touchDown = val
+                }
+            }, perform: {})
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    CatalogAddButton(
+                        plusColor: Binding(get: {
+                            getAddButtonPlusColor()
+                        }, set: { _ in }),
+                        backgroundColor: Binding(get: {
+                            getAddButtonBgColor()
+                        }, set: { _ in })
+                    ) {
+                        print("hello")
+                    }
+                    .frame(width: 80, height: 80)
+                }
+            }
         }
         .frame(width: Constants.width, height: Constants.height)
+        .scaleEffect(touchDown ? 0.95 : 1)
     }
 }
 
@@ -115,21 +134,7 @@ extension CatalogItemView {
 
 struct CatalogItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CatalogItemView(item: .constant(Product(
-            id: "2",
-            title: "Nike air",
-            subtitle: "air jordan 1 retro high",
-            cost: 1099,
-            raiting: 3.5,
-            variants: [
-                Product.Variant(
-                    mainImage: UIImage(named: "redShoe")!,
-                    images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
-                    sizes: ["41", "42", "43.5", "45"],
-                    shoeColor: .red
-                )
-            ]
-        )))
+        CatalogItemView(item: .constant(Product.mock))
         .background(Color.init(white: 0.1))
         .previewLayout(PreviewLayout.sizeThatFits)
     }

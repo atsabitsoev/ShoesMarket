@@ -10,6 +10,7 @@
 		AC0C8DDA28EF79DE003662D0 /* ShoeDetailsTitlePriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C8DD928EF79DE003662D0 /* ShoeDetailsTitlePriceView.swift */; };
 		AC0C8DDC28EF7DF4003662D0 /* ShoeDetailsStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C8DDB28EF7DF4003662D0 /* ShoeDetailsStarsView.swift */; };
 		AC0C8DDE28EF8B27003662D0 /* ShoeDetailsSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C8DDD28EF8B27003662D0 /* ShoeDetailsSizeView.swift */; };
+		AC21FC5328F6BF0A002B4A30 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21FC5228F6BF0A002B4A30 /* Category.swift */; };
 		AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */ = {isa = PBXBuildFile; productRef = AC4412FF28EB907800DCBE2E /* ScrollViewProxy */; };
 		AC441EE728F53F430050C57F /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = AC441EE628F53F430050C57F /* ColorKit */; };
 		AC4C991928EE42340078001F /* ShoeDetailsPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */; };
@@ -39,6 +40,7 @@
 		AC0C8DD928EF79DE003662D0 /* ShoeDetailsTitlePriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsTitlePriceView.swift; sourceTree = "<group>"; };
 		AC0C8DDB28EF7DF4003662D0 /* ShoeDetailsStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsStarsView.swift; sourceTree = "<group>"; };
 		AC0C8DDD28EF8B27003662D0 /* ShoeDetailsSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsSizeView.swift; sourceTree = "<group>"; };
+		AC21FC5228F6BF0A002B4A30 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotosView.swift; sourceTree = "<group>"; };
 		AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotoIndicatorView.swift; sourceTree = "<group>"; };
 		AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogBackground.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				AC669C0628F2A2600039B542 /* Product.swift */,
+				AC21FC5228F6BF0A002B4A30 /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */,
 				AC4C991928EE42340078001F /* ShoeDetailsPhotosView.swift in Sources */,
 				ACFD55CA28EF97C90083DF3F /* ShoeDetailsColorsView.swift in Sources */,
+				AC21FC5328F6BF0A002B4A30 /* Category.swift in Sources */,
 				ACFD55CC28EF9E500083DF3F /* ShoeDetailsBuyButton.swift in Sources */,
 				AC0C8DDE28EF8B27003662D0 /* ShoeDetailsSizeView.swift in Sources */,
 				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,

@@ -8,23 +8,28 @@
 import SwiftUI
 
 struct CatalogCategoriesView: View {
-    @State private var categories: [String] = ["Basketball", "Running", "Training", "Hellowing"]
     @State private var selectedIndex: Int = 0
     @State private var offsetX: CGFloat = 0
 
+    @Binding private var categories: [Category]
     @Binding private var secondaryColor: Color
     @Binding private var selectionColor: Color
 
 
     private let scrollDelegate = CategoriesScrollViewDelegate()
+    private let onCategorySelected: (Category) -> Void
 
 
     init(
+        categories: Binding<[Category]> = .constant([]),
         selectionColor: Binding<Color> = .constant(Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)),
-        secondaryColor: Binding<Color> = .constant(Color(white: 0.6))
+        secondaryColor: Binding<Color> = .constant(Color(white: 0.6)),
+        onCategorySelected: @escaping (Category) -> Void = { _ in }
     ) {
+        self._categories = categories
         self._selectionColor = selectionColor
         self._secondaryColor = secondaryColor
+        self.onCategorySelected = onCategorySelected
     }
 
 
@@ -32,13 +37,15 @@ struct CatalogCategoriesView: View {
         ScrollView(.horizontal, showsIndicators: false) { proxy in
             HStack(spacing: 24) {
                 ForEach(categories.indices, id: \.self) { index in
-                    Text(categories[index])
+                    Text(categories[index].name)
+                        .shadow(radius: 10)
                         .font(Font.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(index == selectedIndex ? selectionColor : secondaryColor)
                         .onTapGesture {
                             selectedIndex = index
                             proxy.scrollTo(selectedIndex)
+                            onCategorySelected(categories[index])
                         }
                         .scrollId(index)
                 }
@@ -57,7 +64,9 @@ struct CatalogCategoriesView: View {
                     }
                 }
             }
+            .padding(24)
         }
+        .padding(-24)
         .introspectScrollView { scrollView in
             scrollView.delegate = scrollDelegate
             scrollView.decelerationRate = .init(rawValue: 0.9)
