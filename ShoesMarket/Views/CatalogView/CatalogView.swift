@@ -82,10 +82,12 @@ private extension CatalogView {
     }
 
     func updateShownProducts() {
-        if let currentCategory {
-            shownProducts = allProducts.filter({ return $0.categories.contains(currentCategory.id) || currentCategory.isAllProductsCategory })
-        } else {
-            shownProducts = allProducts
+        withAnimation {
+            if let currentCategory {
+                shownProducts = allProducts.filter({ return $0.categories.contains(currentCategory.id) || currentCategory.isAllProductsCategory })
+            } else {
+                shownProducts = allProducts
+            }
         }
     }
 

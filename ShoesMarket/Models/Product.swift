@@ -108,7 +108,7 @@ private extension Product {
                         shoeColor: .yellow
                     )
                 ],
-                categories: ["1", "3"]
+                categories: ["1"]
             ),
             Product(
                 id: "13",
@@ -146,7 +146,7 @@ private extension Product {
                         shoeColor: .red
                     )
                 ],
-                categories: ["2", "4"]
+                categories: ["2"]
             ),
             Product(
                 id: "5",
@@ -162,7 +162,7 @@ private extension Product {
                         shoeColor: .gray
                     )
                 ],
-                categories: ["1", "4"]
+                categories: ["4"]
             ),
             Product(
                 id: "2",

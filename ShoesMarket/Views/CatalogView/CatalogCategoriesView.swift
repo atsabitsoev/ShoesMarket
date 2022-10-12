@@ -37,17 +37,24 @@ struct CatalogCategoriesView: View {
         ScrollView(.horizontal, showsIndicators: false) { proxy in
             HStack(spacing: 24) {
                 ForEach(categories.indices, id: \.self) { index in
-                    Text(categories[index].name)
-                        .shadow(radius: 10)
-                        .font(Font.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(index == selectedIndex ? selectionColor : secondaryColor)
-                        .onTapGesture {
-                            selectedIndex = index
-                            proxy.scrollTo(selectedIndex)
-                            onCategorySelected(categories[index])
-                        }
-                        .scrollId(index)
+                    Button(action: {}) {
+                        Text(categories[index].name)
+                            .shadow(radius: 10)
+                            .font(Font.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(index == selectedIndex ? selectionColor : secondaryColor)
+                    }
+                    .buttonStyle(
+                        SMButtonStyle(
+                            action: {
+                                selectedIndex = index
+                                proxy.scrollTo(selectedIndex)
+                                onCategorySelected(categories[index])
+                            },
+                            animateHighlight: false
+                        )
+                    )
+                    .scrollId(index)
                 }
             }
             .padding(.horizontal, 24)

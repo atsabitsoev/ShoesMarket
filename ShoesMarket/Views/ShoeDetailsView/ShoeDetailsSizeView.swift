@@ -14,7 +14,6 @@ struct ShoeDetailsSizeView: View {
 
     @Binding private var sizes: [String]
     @State private var selectedIndex: Int = 0
-    @State private var touchDownIndex: Int? = nil
 
 
     init(
@@ -39,35 +38,31 @@ struct ShoeDetailsSizeView: View {
                 .shadow(radius: 10)
             HStack(spacing: Constants.spacing) {
                 ForEach(sizes.indices, id: \.self) { index in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: Constants.cornerRadius)
-                            .foregroundColor(getItemColor(index: index))
-                        Text(sizes[index])
-                            .foregroundColor(index == selectedIndex ? textColor : tintColor)
-                            .bold()
+                    Button(action: {}) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                                .foregroundColor(selectedIndex == index ? tintColor : backgroundColor)
+                            Text(sizes[index])
+                                .foregroundColor(index == selectedIndex ? textColor : tintColor)
+                                .bold()
+                        }
                     }
+                    .buttonStyle(
+                        SMButtonStyle(
+                            action: {
+                                selectedIndex = index
+                            },
+                            animateHighlight: false
+                        )
+                    )
                     .frame(width: Constants.itemSize, height: Constants.itemSize)
-                    .onTapGesture {
-                        selectedIndex = index
-                    }
-                    .onLongPressGesture(minimumDuration: 0, maximumDistance: Constants.itemSize) {} onPressingChanged: { press in
-                        touchDownIndex = press ? index : nil
-                    }
-
                 }
             }
         }
+        .onChange(of: sizes, perform: { _ in
+            selectedIndex = 0
+        })
         .padding(.horizontal, Constants.padding)
-    }
-}
-
-
-private extension ShoeDetailsSizeView {
-    func getItemColor(index: Int) -> Color {
-        guard touchDownIndex != index else {
-            return Color(white: 0.6)
-        }
-        return selectedIndex == index ? tintColor : backgroundColor
     }
 }
 

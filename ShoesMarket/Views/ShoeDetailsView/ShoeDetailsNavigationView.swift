@@ -14,9 +14,7 @@ struct ShoeDetailsNavigationView: View {
 
     var body: some View {
         HStack {
-            Button {
-                dismiss()
-            } label: {
+            Button {} label: {
                 Image(systemName: "chevron.left")
                     .frame(width: 40, height: 40)
                     .background(Color.white)
@@ -25,17 +23,19 @@ struct ShoeDetailsNavigationView: View {
                     .cornerRadius(8)
                     .shadow(radius: 10)
             }
+            .buttonStyle(SMButtonStyle(action: dismiss.callAsFunction))
             .frame(width: 56, height: 56)
             Spacer()
-            Button {
-                print("heart")
-            } label: {
+            Button {} label: {
                 Image(systemName: "heart")
                     .resizable()
                     .scaledToFit()
                     .frame(height: 24)
                     .foregroundColor(Color.white)
             }
+            .buttonStyle(SMButtonStyle(action: {
+                print("heart")
+            }))
             .frame(width: 56, height: 56)
         }
         .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 8))

@@ -27,9 +27,7 @@ struct ShoeDetailsBuyButton: View {
 
 
     var body: some View {
-        Button {
-            action()
-        } label: {
+        Button {} label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 16)
                     .frame(width: 150, height: 64)
@@ -42,6 +40,7 @@ struct ShoeDetailsBuyButton: View {
             }
             .padding(.trailing, 24)
         }
+        .buttonStyle(SMButtonStyle(action: action))
     }
 }
 

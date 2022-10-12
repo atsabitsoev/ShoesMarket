@@ -46,7 +46,6 @@ struct CatalogScrollView: View {
                     .blur(radius: abs(getItemScale(index: index) - 1) * 10)
                     .scrollId(index)
                 }
-                .animation(.easeInOut, value: items)
             }
             .padding(EdgeInsets(top: 0, leading: idealOffset, bottom: 0, trailing: idealOffset))
             .onReceive(proxy.offset, perform: { offsetX = $0.x })
@@ -67,7 +66,7 @@ struct CatalogScrollView: View {
                 }
             }
             .onChange(of: items) { newValue in
-                proxy.scrollTo(.leading, animated: false)
+                proxy.scrollTo(.leading, animated: true)
                 onItemChange(0)
             }
         }
