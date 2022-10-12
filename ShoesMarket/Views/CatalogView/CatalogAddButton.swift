@@ -34,7 +34,7 @@ struct CatalogAddButton: View {
                     .foregroundColor(backgroundColor)
                 Image(systemName: "plus")
                     .resizable()
-                    .padding(28)
+                    .frame(width: 24, height: 24)
                     .foregroundColor(plusColor)
                     .bold()
             }
@@ -44,9 +44,7 @@ struct CatalogAddButton: View {
 
 struct CatalogAddButton_Previews: PreviewProvider {
     static var previews: some View {
-        CatalogAddButton(action: {
-            print("hello")
-        })
+        CatalogAddButton(action: {})
         .frame(width: 80, height: 80)
     }
 }

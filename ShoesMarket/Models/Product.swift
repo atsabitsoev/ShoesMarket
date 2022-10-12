@@ -111,6 +111,22 @@ private extension Product {
                 categories: ["1", "3"]
             ),
             Product(
+                id: "13",
+                title: "Nike air",
+                subtitle: "air jordan 1 mid se",
+                cost: 1899,
+                raiting: 5,
+                variants: [
+                    Variant(
+                        mainImage: UIImage(named: "redShoe")!,
+                        images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
+                        sizes: ["41", "43", "45"],
+                        shoeColor: .red
+                    )
+                ],
+                categories: ["1", "3"]
+            ),
+            Product(
                 id: "3.2",
                 title: "Nike dunk",
                 subtitle: "air force 1 low",

@@ -38,7 +38,6 @@ struct CatalogScrollView: View {
                 ForEach(items.indices, id: \.self) { index in
                     CatalogItemView(
                         item: Binding(get: {
-                            print(items.count)
                             return items[index]
                         }, set: { _, _ in }),
                         onItemTap: { onItemTap(index) }
@@ -47,6 +46,7 @@ struct CatalogScrollView: View {
                     .blur(radius: abs(getItemScale(index: index) - 1) * 10)
                     .scrollId(index)
                 }
+                .animation(.easeInOut, value: items)
             }
             .padding(EdgeInsets(top: 0, leading: idealOffset, bottom: 0, trailing: idealOffset))
             .onReceive(proxy.offset, perform: { offsetX = $0.x })
@@ -68,6 +68,7 @@ struct CatalogScrollView: View {
             }
             .onChange(of: items) { newValue in
                 proxy.scrollTo(.leading, animated: false)
+                onItemChange(0)
             }
         }
         .introspectScrollView { scrollView in
@@ -126,9 +127,7 @@ struct CatalogScrollView_Previews: PreviewProvider {
                 Product.mock
             ]),
             onItemChange: { index in },
-            onItemTap: { index in
-                print(index)
-            })
+            onItemTap: { index in })
             .background(Color(white: 0.1))
             .previewLayout(.sizeThatFits)
     }

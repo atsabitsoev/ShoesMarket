@@ -36,7 +36,6 @@ struct CatalogView: View {
                         selectionColor: $detailColor,
                         secondaryColor: $secondaryColor) { category in
                             currentCategory = category
-                            currentProductIndex = 0
                             updateShownProducts()
                         }
                     Spacer()
@@ -72,24 +71,22 @@ struct CatalogView: View {
 private extension CatalogView {
     func loadProducts() async {
         allProducts = await Product.all
-        currentProductIndex = 0
         updateShownProducts()
     }
 
     func loadCategories() async {
-        categories = await Category.all
+        let loadedCategories = await Category.all
+        categories = [Category.allProductsCategory] + loadedCategories
         currentCategory = categories.first
         updateShownProducts()
     }
 
     func updateShownProducts() {
         if let currentCategory {
-            shownProducts = allProducts.filter({ return $0.categories.contains(currentCategory.id) })
+            shownProducts = allProducts.filter({ return $0.categories.contains(currentCategory.id) || currentCategory.isAllProductsCategory })
         } else {
             shownProducts = allProducts
         }
-        guard !shownProducts.isEmpty else { return }
-        updateColors()
     }
 
     func updateColors() {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CatalogItemView: View {
     @Binding private var item: Product
-    @State private var textColor = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
+    private var textColor = Color.white
     @State private var touchDown: Bool = false
 
     private let errorImage = UIImage(systemName: "heart")!
@@ -28,13 +28,14 @@ struct CatalogItemView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous)
-                .foregroundColor(Color.white)
+                .foregroundColor(item.variants.first!.themeColors.averageColor)
             VStack(spacing: Constants.spacing) {
                 HStack {
                     Text(item.title.uppercased())
                         .multilineTextAlignment(TextAlignment.leading)
                         .bold()
                         .foregroundColor(textColor)
+                        .shadow(radius: 10)
                     Spacer()
                 }
                 HStack {
@@ -44,6 +45,7 @@ struct CatalogItemView: View {
                         .truncationMode(.middle)
                         .bold()
                         .foregroundColor(textColor)
+                        .shadow(radius: 10)
                     Spacer()
                 }
                 HStack {
@@ -51,6 +53,7 @@ struct CatalogItemView: View {
                         .multilineTextAlignment(TextAlignment.leading)
                         .bold()
                         .foregroundColor(textColor)
+                        .shadow(radius: 10)
                     Spacer()
                 }
                 Spacer()
@@ -60,7 +63,7 @@ struct CatalogItemView: View {
                         .multilineTextAlignment(TextAlignment.leading)
                         .minimumScaleFactor(0.5)
                         .font(Font(CTFont(.label, size: 72)))
-                        .foregroundColor(Color(white: 0.9))
+                        .foregroundColor(Color(white: 1, opacity: 0.3))
                         .bold()
                     Spacer()
                 }
@@ -94,9 +97,9 @@ struct CatalogItemView: View {
                             getAddButtonBgColor()
                         }, set: { _ in })
                     ) {
-                        print("hello")
+                        print("add to cart")
                     }
-                    .frame(width: 80, height: 80)
+                    .frame(width: 100, height: 80)
                 }
             }
         }

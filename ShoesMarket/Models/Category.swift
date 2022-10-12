@@ -11,6 +11,14 @@ struct Category {
     let name: String
 
 
+    var isAllProductsCategory: Bool {
+        return self.id == "AllProductsCategory"
+    }
+
+
+    static let allProductsCategory = Category(id: "AllProductsCategory", name: "Все")
+
+
     static var all: [Category] {
         get async {
             await getAll()

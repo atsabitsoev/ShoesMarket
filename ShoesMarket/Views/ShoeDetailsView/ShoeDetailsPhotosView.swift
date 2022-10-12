@@ -53,10 +53,10 @@ struct ShoeDetailsPhotosView: View {
                     }
                 }
                 .padding(.horizontal, 24)
-                .padding(36)
+                .padding(.bottom, 36)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .padding(-36)
+            .padding(.bottom, -36)
         }
     }
 }
