@@ -111,6 +111,22 @@ private extension Product {
                 categories: ["1"]
             ),
             Product(
+                id: "123",
+                title: "Nike air",
+                subtitle: "air max 90 mid winter",
+                cost: 6799,
+                raiting: 4.9,
+                variants: [
+                    Variant(
+                        mainImage: UIImage(named: "blackShoe")!,
+                        images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
+                        sizes: ["44", "45"],
+                        shoeColor: .black
+                    )
+                ],
+                categories: ["1"]
+            ),
+            Product(
                 id: "13",
                 title: "Nike air",
                 subtitle: "air jordan 1 mid se",
@@ -204,6 +220,12 @@ private extension Product {
                         images: ["shoesPhoto"].map(UIImage.init),
                         sizes: ["41", "42", "43.5", "45"],
                         shoeColor: .gray
+                    ),
+                    Variant(
+                        mainImage: UIImage(named: "blackShoe")!,
+                        images: ["runningPhoto", "shoesPhoto"].map(UIImage.init),
+                        sizes: ["44", "45"],
+                        shoeColor: .black
                     )
                 ],
                 categories: ["1", "3"]

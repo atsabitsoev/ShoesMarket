@@ -30,7 +30,13 @@ struct ShoeDetailsView: View {
                 .frame(width: UIScreen.main.bounds.width * 1.2)
                 .position(x: UIScreen.main.bounds.width / 9 * 8, y: 80)
             VStack {
-                ShoeDetailsNavigationView()
+                ShoeDetailsNavigationView(
+                    tint: Binding(get: {
+                        item.variants[selectedVariantIndex].themeColors.detailColor
+                    }, set: { _ in })
+                )
+                Spacer()
+                    .frame(height: 32)
                 GeometryReader { geo in
                     VStack(spacing: 16) {
                         ZStack {
@@ -91,9 +97,8 @@ struct ShoeDetailsView: View {
                             print("Buy!")
                         }
                 }
-                Spacer()
-                    .frame(height: 32)
             }
+            .padding(.bottom, 24)
         }
         .contentShape(Rectangle())
         .gesture(

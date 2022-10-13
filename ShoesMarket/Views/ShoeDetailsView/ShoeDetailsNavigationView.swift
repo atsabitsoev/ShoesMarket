@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ShoeDetailsNavigationView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private(set) var tintColor: Color = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
+    @Binding private var tintColor: Color
+
+
+    init(tint: Binding<Color> = .constant(Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255))) {
+        self._tintColor = tint
+    }
 
 
     var body: some View {
