@@ -19,17 +19,10 @@ struct ShoeDetailsNavigationView: View {
 
     var body: some View {
         HStack {
-            Button {} label: {
-                Image(systemName: "chevron.left")
-                    .frame(width: 40, height: 40)
-                    .background(Color.white)
-                    .bold()
-                    .foregroundColor(tintColor)
-                    .cornerRadius(8)
-                    .shadow(radius: 10)
-            }
-            .buttonStyle(SMButtonStyle(action: dismiss.callAsFunction))
-            .frame(width: 56, height: 56)
+            BackButton(
+                tintColor: $tintColor,
+                action: dismiss.callAsFunction
+            )
             Spacer()
             Button {} label: {
                 Image(systemName: "heart")

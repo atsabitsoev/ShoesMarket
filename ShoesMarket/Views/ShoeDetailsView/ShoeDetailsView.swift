@@ -15,6 +15,8 @@ struct ShoeDetailsView: View {
     @State private var selectedVariantIndex: Int = 0
     @Binding private var item: Product
 
+    @State private var isPresentedReviews: Bool = false
+
 
     init(item: Binding<Product> = .constant(.mock)) {
         self._item = item
@@ -35,8 +37,7 @@ struct ShoeDetailsView: View {
                         item.variants[selectedVariantIndex].themeColors.detailColor
                     }, set: { _ in })
                 )
-                Spacer()
-                    .frame(height: 32)
+                .zIndex(2)
                 GeometryReader { geo in
                     VStack(spacing: 16) {
                         ZStack {
@@ -55,11 +56,15 @@ struct ShoeDetailsView: View {
                     }
                     .frame(width: geo.size.width, height: geo.size.height)
                 }
+                .zIndex(1)
                 Spacer()
                     .frame(height: 32)
                 ShoeDetailsTitlePriceView(item: $item)
                 HStack {
                     ShoeDetailsStarsView()
+                        .onTapGesture {
+                            isPresentedReviews = true
+                        }
                     Spacer()
                 }
                 Spacer()
@@ -112,11 +117,20 @@ struct ShoeDetailsView: View {
                     }
                 )
         )
+        .navigationDestination(isPresented: $isPresentedReviews) {
+            ReviewsView(
+                productId: item.id,
+                tintColor: item.variants[selectedVariantIndex].themeColors.detailColor,
+                backgroundColor: item.variants[selectedVariantIndex].themeColors.mainColor
+            )
+            .navigationBarBackButtonHidden()
+        }
     }
 }
 
 struct ShoeDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ShoeDetailsView()
+//            .previewDevice(PreviewDevice.init(stringLiteral: "iPhone SE (3rd generation)"))
     }
 }

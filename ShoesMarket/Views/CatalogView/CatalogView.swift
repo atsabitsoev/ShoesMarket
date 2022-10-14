@@ -55,7 +55,7 @@ struct CatalogView: View {
             }
             .navigationDestination(isPresented: $isPresentedDetails) {
                 ShoeDetailsView(item: $tappedProduct)
-                .navigationBarBackButtonHidden()
+                    .navigationBarBackButtonHidden()
             }
         }
         .task {

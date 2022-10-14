@@ -37,10 +37,10 @@ struct ShoeDetailsPhotosView: View {
                                 y: 20
                             )
                             .offset(CGSize(
-                                width: -24,
-                                height: -24
+                                width: -geo.size.width / 12,
+                                height: -geo.size.height / 12
                             ))
-                            .frame(maxHeight: abs(geo.size.height - 96))
+                            .frame(maxHeight: abs(geo.size.height - 68))
                     } else {
                         GeometryReader { geo in
                             Image(uiImage: images[index])
@@ -50,22 +50,28 @@ struct ShoeDetailsPhotosView: View {
                                 .clipped()
                                 .cornerRadius(16)
                         }
+                        .padding(.top, -16)
                     }
                 }
                 .padding(.horizontal, 24)
-                .padding(.bottom, 36)
-                .padding(.top, 20)
+                .padding(.vertical, 80)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .padding(.bottom, -36)
-            .padding(.top, -20)
+            .padding(.vertical, -80)
         }
     }
 }
 
 struct ShoeDetailsPhotosView_Previews: PreviewProvider {
     static var previews: some View {
-        ShoeDetailsPhotosView(.constant(0))
+        VStack {
+            Spacer()
+                .frame(height: 100)
+            ShoeDetailsPhotosView(.constant(0))
+            Spacer()
+                .frame(height: 100)
+        }
             .previewLayout(.sizeThatFits)
+            .previewDevice(PreviewDevice.init(stringLiteral: "iPhone SE (3rd generation)"))
     }
 }

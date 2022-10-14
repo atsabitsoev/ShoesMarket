@@ -27,6 +27,8 @@ struct ShoeDetailsTitlePriceView: View {
             }
             HStack {
                 Text(item.subtitle.uppercased())
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.5)
                     .multilineTextAlignment(TextAlignment.leading)
                     .font(Font.title2)
                     .bold()

@@ -18,6 +18,15 @@
 		AC514C2328F3E4B0001DA372 /* CatalogBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */; };
 		AC669C0728F2A2600039B542 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC669C0628F2A2600039B542 /* Product.swift */; };
 		AC669C0A28F2A4900039B542 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC669C0928F2A4900039B542 /* Color+Extension.swift */; };
+		ACB498DC28F9241400A0BD4C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498DB28F9241400A0BD4C /* Review.swift */; };
+		ACB498DF28F9261A00A0BD4C /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498DE28F9261A00A0BD4C /* ReviewsView.swift */; };
+		ACB498E128F9334000A0BD4C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E028F9334000A0BD4C /* BackButton.swift */; };
+		ACB498E328F9343B00A0BD4C /* ReviewsNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E228F9343B00A0BD4C /* ReviewsNavigationView.swift */; };
+		ACB498E628F9356800A0BD4C /* SMButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E528F9356800A0BD4C /* SMButtonStyle.swift */; };
+		ACB498EA28F9361400A0BD4C /* TitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E928F9361400A0BD4C /* TitleText.swift */; };
+		ACB498EC28F9391400A0BD4C /* ReviewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498EB28F9391300A0BD4C /* ReviewsList.swift */; };
+		ACB498EE28F93AB700A0BD4C /* ReviewsListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498ED28F93AB700A0BD4C /* ReviewsListItemView.swift */; };
+		ACB498F228F97FDD00A0BD4C /* ReviewsItemStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498F128F97FDD00A0BD4C /* ReviewsItemStarsView.swift */; };
 		ACB838B728EC9AA300C01673 /* CatalogCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */; };
 		ACB838BA28ECA6AB00C01673 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B928ECA6AB00C01673 /* CornerRadius.swift */; };
 		ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */; };
@@ -46,6 +55,15 @@
 		AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogBackground.swift; sourceTree = "<group>"; };
 		AC669C0628F2A2600039B542 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AC669C0928F2A4900039B542 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		ACB498DB28F9241400A0BD4C /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		ACB498DE28F9261A00A0BD4C /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
+		ACB498E028F9334000A0BD4C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		ACB498E228F9343B00A0BD4C /* ReviewsNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsNavigationView.swift; sourceTree = "<group>"; };
+		ACB498E528F9356800A0BD4C /* SMButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMButtonStyle.swift; sourceTree = "<group>"; };
+		ACB498E928F9361400A0BD4C /* TitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleText.swift; sourceTree = "<group>"; };
+		ACB498EB28F9391300A0BD4C /* ReviewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsList.swift; sourceTree = "<group>"; };
+		ACB498ED28F93AB700A0BD4C /* ReviewsListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsListItemView.swift; sourceTree = "<group>"; };
+		ACB498F128F97FDD00A0BD4C /* ReviewsItemStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsItemStarsView.swift; sourceTree = "<group>"; };
 		ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCategoriesView.swift; sourceTree = "<group>"; };
 		ACB838B928ECA6AB00C01673 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAddButton.swift; sourceTree = "<group>"; };
@@ -82,6 +100,7 @@
 		AC59074028EB6BF8004E6AEF /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				ACB498E028F9334000A0BD4C /* BackButton.swift */,
 				AC59074128EB6C08004E6AEF /* SMTabBar */,
 			);
 			path = Library;
@@ -101,6 +120,7 @@
 			children = (
 				AC669C0628F2A2600039B542 /* Product.swift */,
 				AC21FC5228F6BF0A002B4A30 /* Category.swift */,
+				ACB498DB28F9241400A0BD4C /* Review.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -113,10 +133,39 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		ACB498E428F9355C00A0BD4C /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				ACB498E528F9356800A0BD4C /* SMButtonStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		ACB498EF28F93BA300A0BD4C /* ReviewsView */ = {
+			isa = PBXGroup;
+			children = (
+				ACB498DE28F9261A00A0BD4C /* ReviewsView.swift */,
+				ACB498E228F9343B00A0BD4C /* ReviewsNavigationView.swift */,
+				ACB498EB28F9391300A0BD4C /* ReviewsList.swift */,
+				ACB498F028F97FB100A0BD4C /* ReviewsItemView */,
+			);
+			path = ReviewsView;
+			sourceTree = "<group>";
+		};
+		ACB498F028F97FB100A0BD4C /* ReviewsItemView */ = {
+			isa = PBXGroup;
+			children = (
+				ACB498ED28F93AB700A0BD4C /* ReviewsListItemView.swift */,
+				ACB498F128F97FDD00A0BD4C /* ReviewsItemStarsView.swift */,
+			);
+			path = ReviewsItemView;
+			sourceTree = "<group>";
+		};
 		ACB838B828ECA68000C01673 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
 				ACB838B928ECA6AB00C01673 /* CornerRadius.swift */,
+				ACB498E928F9361400A0BD4C /* TitleText.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -192,10 +241,12 @@
 		ACF850A328E60BCD0053BE2F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ACB498E428F9355C00A0BD4C /* Styles */,
 				ACB838B828ECA68000C01673 /* Modifiers */,
 				AC59074028EB6BF8004E6AEF /* Library */,
 				ACE23AF228E65D5B009D9E08 /* CatalogView */,
 				ACB838BF28ECBD8700C01673 /* ShoeDetailsView */,
+				ACB498EF28F93BA300A0BD4C /* ReviewsView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -281,6 +332,8 @@
 				ACE23AF828E66FC1009D9E08 /* CatalogScrollView.swift in Sources */,
 				AC669C0A28F2A4900039B542 /* Color+Extension.swift in Sources */,
 				ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */,
+				ACB498EC28F9391400A0BD4C /* ReviewsList.swift in Sources */,
+				ACB498E628F9356800A0BD4C /* SMButtonStyle.swift in Sources */,
 				AC0C8DDC28EF7DF4003662D0 /* ShoeDetailsStarsView.swift in Sources */,
 				ACB838B728EC9AA300C01673 /* CatalogCategoriesView.swift in Sources */,
 				ACB838BA28ECA6AB00C01673 /* CornerRadius.swift in Sources */,
@@ -291,15 +344,22 @@
 				ACB838C128ECBD9F00C01673 /* ShoeDetailsView.swift in Sources */,
 				ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */,
 				AC4C991928EE42340078001F /* ShoeDetailsPhotosView.swift in Sources */,
+				ACB498E328F9343B00A0BD4C /* ReviewsNavigationView.swift in Sources */,
 				ACFD55CA28EF97C90083DF3F /* ShoeDetailsColorsView.swift in Sources */,
+				ACB498F228F97FDD00A0BD4C /* ReviewsItemStarsView.swift in Sources */,
 				AC21FC5328F6BF0A002B4A30 /* Category.swift in Sources */,
 				ACFD55CC28EF9E500083DF3F /* ShoeDetailsBuyButton.swift in Sources */,
 				AC0C8DDE28EF8B27003662D0 /* ShoeDetailsSizeView.swift in Sources */,
+				ACB498DC28F9241400A0BD4C /* Review.swift in Sources */,
 				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,
+				ACB498DF28F9261A00A0BD4C /* ReviewsView.swift in Sources */,
+				ACB498EA28F9361400A0BD4C /* TitleText.swift in Sources */,
 				AC4C991B28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift in Sources */,
 				AC669C0728F2A2600039B542 /* Product.swift in Sources */,
 				ACB838C528ECD40600C01673 /* ShoeDetailsNavigationView.swift in Sources */,
 				ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */,
+				ACB498E128F9334000A0BD4C /* BackButton.swift in Sources */,
+				ACB498EE28F93AB700A0BD4C /* ReviewsListItemView.swift in Sources */,
 				AC514C2328F3E4B0001DA372 /* CatalogBackground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
