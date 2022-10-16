@@ -14,6 +14,7 @@
 		AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */ = {isa = PBXBuildFile; productRef = AC4412FF28EB907800DCBE2E /* ScrollViewProxy */; };
 		AC441EE728F53F430050C57F /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = AC441EE628F53F430050C57F /* ColorKit */; };
 		AC4B1CEA28FBD84200093967 /* ReviewsItemPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B1CE928FBD84200093967 /* ReviewsItemPhotosView.swift */; };
+		AC4B1CEF28FBDAE900093967 /* SMImagesViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B1CEE28FBDAE900093967 /* SMImagesViewer.swift */; };
 		AC4C991928EE42340078001F /* ShoeDetailsPhotosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */; };
 		AC4C991B28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */; };
 		AC514C2328F3E4B0001DA372 /* CatalogBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */; };
@@ -52,6 +53,7 @@
 		AC0C8DDD28EF8B27003662D0 /* ShoeDetailsSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsSizeView.swift; sourceTree = "<group>"; };
 		AC21FC5228F6BF0A002B4A30 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		AC4B1CE928FBD84200093967 /* ReviewsItemPhotosView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsItemPhotosView.swift; sourceTree = "<group>"; };
+		AC4B1CEE28FBDAE900093967 /* SMImagesViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMImagesViewer.swift; sourceTree = "<group>"; };
 		AC4C991828EE42340078001F /* ShoeDetailsPhotosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotosView.swift; sourceTree = "<group>"; };
 		AC4C991A28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeDetailsPhotoIndicatorView.swift; sourceTree = "<group>"; };
 		AC514C2228F3E4B0001DA372 /* CatalogBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogBackground.swift; sourceTree = "<group>"; };
@@ -99,11 +101,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC4B1CED28FBDACE00093967 /* SMImagesViewer */ = {
+			isa = PBXGroup;
+			children = (
+				AC4B1CEE28FBDAE900093967 /* SMImagesViewer.swift */,
+			);
+			path = SMImagesViewer;
+			sourceTree = "<group>";
+		};
 		AC59074028EB6BF8004E6AEF /* Library */ = {
 			isa = PBXGroup;
 			children = (
 				ACB498E028F9334000A0BD4C /* BackButton.swift */,
 				AC59074128EB6C08004E6AEF /* SMTabBar */,
+				AC4B1CED28FBDACE00093967 /* SMImagesViewer */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -305,6 +316,7 @@
 			packageReferences = (
 				AC4412FE28EB907800DCBE2E /* XCRemoteSwiftPackageReference "ScrollViewProxy" */,
 				AC441EE528F53F430050C57F /* XCRemoteSwiftPackageReference "ColorKit" */,
+				AC4B1CF028FC00FE00093967 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = ACF8509128E604D50053BE2F /* Products */;
 			projectDirPath = "";
@@ -357,6 +369,7 @@
 				ACB498DC28F9241400A0BD4C /* Review.swift in Sources */,
 				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,
 				ACB498DF28F9261A00A0BD4C /* ReviewsView.swift in Sources */,
+				AC4B1CEF28FBDAE900093967 /* SMImagesViewer.swift in Sources */,
 				ACB498EA28F9361400A0BD4C /* TitleText.swift in Sources */,
 				AC4C991B28EE53EA0078001F /* ShoeDetailsPhotoIndicatorView.swift in Sources */,
 				AC669C0728F2A2600039B542 /* Product.swift in Sources */,
@@ -602,6 +615,14 @@
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		AC4B1CF028FC00FE00093967 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

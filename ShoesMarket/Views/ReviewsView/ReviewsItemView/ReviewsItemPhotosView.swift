@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ReviewsItemPhotosView: View {
+    @State private var imagesViewerIsPresented: Bool = false
+
     private let images: [UIImage]
 
 
@@ -26,12 +28,18 @@ struct ReviewsItemPhotosView: View {
                         .frame(width: Constants.itemSize, height: Constants.itemSize)
                         .cornerRadius(8)
                         .clipped()
+                        .onTapGesture {
+                            imagesViewerIsPresented = true
+                        }
                 }
             }
             .padding(.horizontal, 16)
         }
         .introspectScrollView { scrollView in
             scrollView.alwaysBounceHorizontal = false
+        }
+        .sheet(isPresented: $imagesViewerIsPresented) {
+            SMImagesViewer(images: images)
         }
     }
 }
