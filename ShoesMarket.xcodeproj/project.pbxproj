@@ -316,7 +316,6 @@
 			packageReferences = (
 				AC4412FE28EB907800DCBE2E /* XCRemoteSwiftPackageReference "ScrollViewProxy" */,
 				AC441EE528F53F430050C57F /* XCRemoteSwiftPackageReference "ColorKit" */,
-				AC4B1CF028FC00FE00093967 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = ACF8509128E604D50053BE2F /* Products */;
 			projectDirPath = "";
@@ -615,14 +614,6 @@
 			requirement = {
 				branch = master;
 				kind = branch;
-			};
-		};
-		AC4B1CF028FC00FE00093967 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

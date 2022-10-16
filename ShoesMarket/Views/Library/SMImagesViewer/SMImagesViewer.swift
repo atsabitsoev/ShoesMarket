@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ImageViewer
 
 struct SMImagesViewer: View {
     private let images: [UIImage]
@@ -20,12 +19,6 @@ struct SMImagesViewer: View {
     var body: some View {
         TabView {
             ForEach(images.indices, id: \.self) { index in
-                ScrollView([.horizontal]) {
-                    ImageViewer(
-                        image: .constant(Image(uiImage: images[index])),
-                        viewerShown: .constant(true)
-                    )
-                }
             }
         }
         .tabViewStyle(PageTabViewStyle())
