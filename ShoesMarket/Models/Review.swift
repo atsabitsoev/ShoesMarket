@@ -33,7 +33,7 @@ extension Review {
                 id: "1",
                 authorName: "Геннадий",
                 text: "Товар мне понравился, отличное качество для такой цены. Купил две пары. Советую всем!",
-                photos: ["shoesPhoto", "runningPhoto", "shoesPhoto", "runningPhoto", "shoesPhoto", "runningPhoto"].map(UIImage.init),
+                photos: ["shoesPhoto", "runningPhoto", "shoesPhoto", "runningPhoto", "shoesPhoto", "runningPhoto", "shoesPhoto", "runningPhoto", "shoesPhoto", "runningPhoto", "shoesPhoto", "runningPhoto"].map(UIImage.init),
                 raiting: 5
             ),
             Review(
