@@ -12,12 +12,18 @@ struct ShoeDetailsPhotosView: View {
     @Binding private var images: [UIImage]
 
 
+    private let imageTapped: (_ index: Int) -> Void
+
+
     init(
         _ selection: Binding<Int>,
-        images: Binding<[UIImage]> = .constant([UIImage(named: "nikeShoe")!, UIImage(named: "shoesPhoto")!, UIImage(named: "runningPhoto")!]))
+        images: Binding<[UIImage]> = .constant([UIImage(named: "nikeShoe")!, UIImage(named: "shoesPhoto")!, UIImage(named: "runningPhoto")!]),
+        imageTapped: @escaping (_ index: Int) -> Void = { _ in }
+    )
     {
         self._selectedIndex = selection
         self._images = images
+        self.imageTapped = imageTapped
     }
 
 
@@ -41,6 +47,9 @@ struct ShoeDetailsPhotosView: View {
                                 height: -geo.size.height / 12
                             ))
                             .frame(maxHeight: abs(geo.size.height - 68))
+                            .onTapGesture {
+                                imageTapped(index)
+                            }
                     } else {
                         GeometryReader { geo in
                             Image(uiImage: images[index])
@@ -49,6 +58,9 @@ struct ShoeDetailsPhotosView: View {
                                 .frame(width: geo.size.width, height: geo.size.height)
                                 .clipped()
                                 .cornerRadius(16)
+                                .onTapGesture {
+                                    imageTapped(index)
+                                }
                         }
                         .padding(.top, -16)
                     }

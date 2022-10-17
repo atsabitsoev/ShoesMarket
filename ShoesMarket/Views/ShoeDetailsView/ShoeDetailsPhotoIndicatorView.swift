@@ -27,7 +27,7 @@ struct ShoeDetailsPhotoIndicatorView: View {
                         height: Constants.dotHeight
                     )
                     .animation(Animation.easeInOut, value: currentIndex)
-                    .foregroundColor(index == currentIndex ? Color.white : Color(white: 0.6))
+                    .foregroundColor(index == currentIndex ? Color.white : Color.black.opacity(0.3))
             }
         }
     }

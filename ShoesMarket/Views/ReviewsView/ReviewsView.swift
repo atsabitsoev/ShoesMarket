@@ -12,6 +12,10 @@ struct ReviewsView: View {
     @GestureState private var dragOffset = CGSize.zero
     @State private var reviews: [Review] = []
 
+    @State private var tappedImageIndex: Int = 0
+    @State private var tappedImageItemIndex: Int = 0
+    @State private var showImageViewer: Bool = false
+
 
     private let productId: String
     private let tintColor: Color
@@ -35,7 +39,20 @@ struct ReviewsView: View {
                 .ignoresSafeArea()
             VStack(spacing: 8) {
                 ReviewsNavigationView(tint: .constant(tintColor))
-                ReviewsList(items: $reviews)
+                ReviewsList(items: $reviews) { itemIndex, imageIndex in
+                    tappedImageItemIndex = itemIndex
+                    tappedImageIndex = imageIndex
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        showImageViewer = true
+                    }
+                }
+            }
+            if showImageViewer {
+                SMImagesViewer(
+                    isPresented: $showImageViewer,
+                    images: reviews[tappedImageItemIndex].photos,
+                    startSelectedIndex: tappedImageIndex
+                )
             }
         }
         .contentShape(Rectangle())

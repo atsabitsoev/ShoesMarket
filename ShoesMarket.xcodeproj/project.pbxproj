@@ -29,6 +29,8 @@
 		ACB498EC28F9391400A0BD4C /* ReviewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498EB28F9391300A0BD4C /* ReviewsList.swift */; };
 		ACB498EE28F93AB700A0BD4C /* ReviewsListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498ED28F93AB700A0BD4C /* ReviewsListItemView.swift */; };
 		ACB498F228F97FDD00A0BD4C /* ReviewsItemStarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498F128F97FDD00A0BD4C /* ReviewsItemStarsView.swift */; };
+		ACB6FB9A28FD96AD0094268F /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6FB9928FD96AD0094268F /* PhotoDetailView.swift */; };
+		ACB6FB9C28FDA1B80094268F /* BackgroundBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6FB9B28FDA1B80094268F /* BackgroundBlurView.swift */; };
 		ACB838B728EC9AA300C01673 /* CatalogCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */; };
 		ACB838BA28ECA6AB00C01673 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838B928ECA6AB00C01673 /* CornerRadius.swift */; };
 		ACB838BE28ECA75000C01673 /* CatalogAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */; };
@@ -68,6 +70,8 @@
 		ACB498EB28F9391300A0BD4C /* ReviewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsList.swift; sourceTree = "<group>"; };
 		ACB498ED28F93AB700A0BD4C /* ReviewsListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsListItemView.swift; sourceTree = "<group>"; };
 		ACB498F128F97FDD00A0BD4C /* ReviewsItemStarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsItemStarsView.swift; sourceTree = "<group>"; };
+		ACB6FB9928FD96AD0094268F /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
+		ACB6FB9B28FDA1B80094268F /* BackgroundBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundBlurView.swift; sourceTree = "<group>"; };
 		ACB838B628EC9AA300C01673 /* CatalogCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCategoriesView.swift; sourceTree = "<group>"; };
 		ACB838B928ECA6AB00C01673 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		ACB838BD28ECA75000C01673 /* CatalogAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogAddButton.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				AC4B1CEE28FBDAE900093967 /* SMImagesViewer.swift */,
+				ACB6FB9928FD96AD0094268F /* PhotoDetailView.swift */,
+				ACB6FB9B28FDA1B80094268F /* BackgroundBlurView.swift */,
 			);
 			path = SMImagesViewer;
 			sourceTree = "<group>";
@@ -362,10 +368,12 @@
 				ACB498E328F9343B00A0BD4C /* ReviewsNavigationView.swift in Sources */,
 				ACFD55CA28EF97C90083DF3F /* ShoeDetailsColorsView.swift in Sources */,
 				ACB498F228F97FDD00A0BD4C /* ReviewsItemStarsView.swift in Sources */,
+				ACB6FB9C28FDA1B80094268F /* BackgroundBlurView.swift in Sources */,
 				AC21FC5328F6BF0A002B4A30 /* Category.swift in Sources */,
 				ACFD55CC28EF9E500083DF3F /* ShoeDetailsBuyButton.swift in Sources */,
 				AC0C8DDE28EF8B27003662D0 /* ShoeDetailsSizeView.swift in Sources */,
 				ACB498DC28F9241400A0BD4C /* Review.swift in Sources */,
+				ACB6FB9A28FD96AD0094268F /* PhotoDetailView.swift in Sources */,
 				ACE23AF028E64A46009D9E08 /* CatalogView.swift in Sources */,
 				ACB498DF28F9261A00A0BD4C /* ReviewsView.swift in Sources */,
 				AC4B1CEF28FBDAE900093967 /* SMImagesViewer.swift in Sources */,

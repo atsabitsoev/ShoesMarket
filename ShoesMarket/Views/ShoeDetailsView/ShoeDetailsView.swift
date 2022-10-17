@@ -16,6 +16,8 @@ struct ShoeDetailsView: View {
     @Binding private var item: Product
 
     @State private var isPresentedReviews: Bool = false
+    @State private var tappedPhotoIndex: Int = 0
+    @State private var showImageViewer: Bool = false
 
 
     init(item: Binding<Product> = .constant(.mock)) {
@@ -47,10 +49,17 @@ struct ShoeDetailsView: View {
                                 .bold()
                             ShoeDetailsPhotosView(
                                 $selectedPhotoIndex,
-                                images: Binding(get: {
-                                    return [item.variants[selectedVariantIndex].mainImage] + item.variants[selectedVariantIndex].images
-                                }, set: { _, _ in })
-                            )
+                                images: Binding(
+                                    get: {
+                                        return getAllPhotos()
+                                    },
+                                    set: { _, _ in })
+                            ) { index in
+                                tappedPhotoIndex = index
+                                withAnimation(.easeInOut(duration: 0.2)) {
+                                    showImageViewer = true
+                                }
+                            }
                         }
                         ShoeDetailsPhotoIndicatorView($selectedPhotoIndex, totalItems: item.variants[selectedVariantIndex].images.count + 1)
                     }
@@ -104,6 +113,13 @@ struct ShoeDetailsView: View {
                 }
             }
             .padding(.bottom, 24)
+            if showImageViewer {
+                SMImagesViewer(
+                    isPresented: $showImageViewer,
+                    images: getAllPhotos(),
+                    startSelectedIndex: tappedPhotoIndex
+                )
+            }
         }
         .contentShape(Rectangle())
         .gesture(
@@ -127,6 +143,14 @@ struct ShoeDetailsView: View {
         }
     }
 }
+
+
+private extension ShoeDetailsView {
+    func getAllPhotos() -> [UIImage] {
+        [item.variants[selectedVariantIndex].mainImage] + item.variants[selectedVariantIndex].images
+    }
+}
+
 
 struct ShoeDetailsView_Previews: PreviewProvider {
     static var previews: some View {

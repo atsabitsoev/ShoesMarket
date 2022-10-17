@@ -9,14 +9,19 @@ import SwiftUI
 
 struct ReviewsListItemView: View {
 
-    private var item: Review
-
-
-    init(item: Review = Review.mock) {
+    private let item: Review
+    private let imageTapped: (_ index: Int) -> Void
+    
+    
+    init(
+        item: Review = Review.mock,
+        imageTapped: @escaping (_ index: Int) -> Void = { _ in }
+    ) {
         self.item = item
+        self.imageTapped = imageTapped
     }
-
-
+    
+    
     var body: some View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 16)
@@ -31,8 +36,10 @@ struct ReviewsListItemView: View {
                     .padding(.horizontal, 16)
                 Spacer()
                     .frame(height: 16)
-                ReviewsItemPhotosView(images: item.photos)
-                    .frame(height: ReviewsItemPhotosView.Constants.itemSize)
+                ReviewsItemPhotosView(images: item.photos, imageTapped: { index in
+                    imageTapped(index)
+                })
+                .frame(height: ReviewsItemPhotosView.Constants.itemSize)
                 Spacer()
                     .frame(height: 16)
                 Text(item.text)

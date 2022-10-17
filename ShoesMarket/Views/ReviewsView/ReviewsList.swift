@@ -10,17 +10,28 @@ import SwiftUI
 struct ReviewsList: View {
     @Binding private var items: [Review]
 
+    private let imageTapped: (_ itemIndex: Int, _ imageIndex: Int) -> Void
 
-    init(items: Binding<[Review]> = .constant([])) {
+
+    init(
+        items: Binding<[Review]> = .constant([]),
+        imageTapped: @escaping(_ itemIndex: Int, _ imageIndex: Int) -> Void = { (_, _) in }
+    ) {
         self._items = items
+        self.imageTapped = imageTapped
     }
 
 
     var body: some View {
-        List(items) { item in
-            ReviewsListItemView(item: item)
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.clear)
+        List(items.indices, id: \.self) { itemIndex in
+            ReviewsListItemView(
+                item: items[itemIndex],
+                imageTapped: { imageIndex in
+                    imageTapped(itemIndex, imageIndex)
+                }
+            )
+            .listRowSeparator(.hidden)
+            .listRowBackground(Color.clear)
         }
         .listStyle(PlainListStyle())
         .scrollContentBackground(Visibility.hidden)

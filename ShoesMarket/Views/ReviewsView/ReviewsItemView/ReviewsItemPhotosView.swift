@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct ReviewsItemPhotosView: View {
-    @State private var imagesViewerIsPresented: Bool = false
-
     private let images: [UIImage]
+    private let imageTapped: (_ index: Int) -> Void
 
 
-    init(images: [UIImage]) {
+    init(
+        images: [UIImage],
+        imageTapped: @escaping (_ index: Int) -> Void = { _ in }
+    ) {
         self.images = images
+        self.imageTapped = imageTapped
     }
 
 
@@ -29,7 +32,7 @@ struct ReviewsItemPhotosView: View {
                         .cornerRadius(8)
                         .clipped()
                         .onTapGesture {
-                            imagesViewerIsPresented = true
+                            imageTapped(index)
                         }
                 }
             }
@@ -37,9 +40,6 @@ struct ReviewsItemPhotosView: View {
         }
         .introspectScrollView { scrollView in
             scrollView.alwaysBounceHorizontal = false
-        }
-        .sheet(isPresented: $imagesViewerIsPresented) {
-            SMImagesViewer(images: images)
         }
     }
 }
