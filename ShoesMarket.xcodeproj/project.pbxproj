@@ -22,7 +22,7 @@
 		AC669C0A28F2A4900039B542 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC669C0928F2A4900039B542 /* Color+Extension.swift */; };
 		ACB498DC28F9241400A0BD4C /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498DB28F9241400A0BD4C /* Review.swift */; };
 		ACB498DF28F9261A00A0BD4C /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498DE28F9261A00A0BD4C /* ReviewsView.swift */; };
-		ACB498E128F9334000A0BD4C /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E028F9334000A0BD4C /* BackButton.swift */; };
+		ACB498E128F9334000A0BD4C /* SquareBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E028F9334000A0BD4C /* SquareBarButton.swift */; };
 		ACB498E328F9343B00A0BD4C /* ReviewsNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E228F9343B00A0BD4C /* ReviewsNavigationView.swift */; };
 		ACB498E628F9356800A0BD4C /* SMButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E528F9356800A0BD4C /* SMButtonStyle.swift */; };
 		ACB498EA28F9361400A0BD4C /* TitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB498E928F9361400A0BD4C /* TitleText.swift */; };
@@ -63,7 +63,7 @@
 		AC669C0928F2A4900039B542 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		ACB498DB28F9241400A0BD4C /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		ACB498DE28F9261A00A0BD4C /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
-		ACB498E028F9334000A0BD4C /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		ACB498E028F9334000A0BD4C /* SquareBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareBarButton.swift; sourceTree = "<group>"; };
 		ACB498E228F9343B00A0BD4C /* ReviewsNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsNavigationView.swift; sourceTree = "<group>"; };
 		ACB498E528F9356800A0BD4C /* SMButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMButtonStyle.swift; sourceTree = "<group>"; };
 		ACB498E928F9361400A0BD4C /* TitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleText.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		AC59074028EB6BF8004E6AEF /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				ACB498E028F9334000A0BD4C /* BackButton.swift */,
+				ACB498E028F9334000A0BD4C /* SquareBarButton.swift */,
 				AC59074128EB6C08004E6AEF /* SMTabBar */,
 				AC4B1CED28FBDACE00093967 /* SMImagesViewer */,
 			);
@@ -382,7 +382,7 @@
 				AC669C0728F2A2600039B542 /* Product.swift in Sources */,
 				ACB838C528ECD40600C01673 /* ShoeDetailsNavigationView.swift in Sources */,
 				ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */,
-				ACB498E128F9334000A0BD4C /* BackButton.swift in Sources */,
+				ACB498E128F9334000A0BD4C /* SquareBarButton.swift in Sources */,
 				ACB498EE28F93AB700A0BD4C /* ReviewsListItemView.swift in Sources */,
 				AC514C2328F3E4B0001DA372 /* CatalogBackground.swift in Sources */,
 			);

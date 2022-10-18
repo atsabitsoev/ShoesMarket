@@ -28,15 +28,16 @@ struct PhotoDetailView: UIViewRepresentable {
         guard let page = PDFPage(image: image) else { return view }
         view.document?.insert(page, at: 0)
         view.autoScales = true
-        view.displayMode = .singlePageContinuous
-        view.displayDirection = .horizontal
-        view.usePageViewController(true, withViewOptions: nil)
-        view.minScaleFactor = (width / image.size.width)
+        view.displayMode = .singlePage
+        view.displayDirection = .vertical
+        view.usePageViewController(false, withViewOptions: nil)
+        view.minScaleFactor = (width / image.size.width) / 100 * 98
         view.maxScaleFactor = view.minScaleFactor * 3
         view.backgroundColor = .clear
-        let pdfScrollView: UIScrollView? = view.subviews.compactMap({ $0 as? UIScrollView }).first
-        pdfScrollView?.showsVerticalScrollIndicator = false
-        pdfScrollView?.showsHorizontalScrollIndicator = false
+
+        let scrollView = view.subviews.flatMap(\.subviews).compactMap({ $0 as? UIScrollView }).first
+        scrollView?.bounces = false
+        scrollView?.isScrollEnabled = false
         return view
     }
 

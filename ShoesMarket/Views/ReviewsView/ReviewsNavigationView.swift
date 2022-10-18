@@ -19,7 +19,8 @@ struct ReviewsNavigationView: View {
 
     var body: some View {
         HStack {
-            BackButton(
+            SquareBarButton(
+                state: .back,
                 tintColor: $tintColor,
                 action: dismiss.callAsFunction
             )

@@ -117,7 +117,8 @@ struct ShoeDetailsView: View {
                 SMImagesViewer(
                     isPresented: $showImageViewer,
                     images: getAllPhotos(),
-                    startSelectedIndex: tappedPhotoIndex
+                    startSelectedIndex: tappedPhotoIndex,
+                    tint: item.variants[selectedVariantIndex].themeColors.detailColor
                 )
             }
         }

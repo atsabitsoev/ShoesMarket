@@ -7,17 +7,35 @@
 
 import SwiftUI
 
-struct BackButton: View {
+enum SquareBarButtonState {
+    case back
+    case close
+
+    func imageName() -> String {
+        switch self {
+        case .back:
+            return "chevron.left"
+        case .close:
+            return "xmark"
+        }
+    }
+}
+
+
+struct SquareBarButton: View {
     @Binding private var tintColor: Color
 
 
+    private let state: SquareBarButtonState
     private let action: () -> Void
 
 
     init(
+        state: SquareBarButtonState,
         tintColor: Binding<Color> = .constant(.blue),
         action: @escaping () -> Void = {}
     ) {
+        self.state = state
         self._tintColor = tintColor
         self.action = action
     }
@@ -25,7 +43,7 @@ struct BackButton: View {
 
     var body: some View {
         Button {} label: {
-            Image(systemName: "chevron.left")
+            Image(systemName: state.imageName())
                 .frame(width: 40, height: 40)
                 .background(Color.white)
                 .bold()
@@ -40,6 +58,6 @@ struct BackButton: View {
 
 struct BackButton_Previews: PreviewProvider {
     static var previews: some View {
-        BackButton()
+        SquareBarButton(state: SquareBarButtonState.close)
     }
 }

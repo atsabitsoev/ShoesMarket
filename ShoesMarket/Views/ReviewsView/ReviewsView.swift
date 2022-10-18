@@ -51,7 +51,8 @@ struct ReviewsView: View {
                 SMImagesViewer(
                     isPresented: $showImageViewer,
                     images: reviews[tappedImageItemIndex].photos,
-                    startSelectedIndex: tappedImageIndex
+                    startSelectedIndex: tappedImageIndex,
+                    tint: tintColor
                 )
             }
         }
