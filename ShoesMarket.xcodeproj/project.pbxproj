@@ -40,6 +40,10 @@
 		ACE23AF428E65DE2009D9E08 /* CatalogNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AF328E65DE2009D9E08 /* CatalogNavigationView.swift */; };
 		ACE23AF628E66B8D009D9E08 /* CatalogItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AF528E66B8D009D9E08 /* CatalogItemView.swift */; };
 		ACE23AF828E66FC1009D9E08 /* CatalogScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE23AF728E66FC0009D9E08 /* CatalogScrollView.swift */; };
+		ACE368C828FFF350004B8839 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE368C728FFF350004B8839 /* Tag.swift */; };
+		ACE368CB290014B3004B8839 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = ACE368CA290014B3004B8839 /* Lottie */; };
+		ACE368CD29001513004B8839 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE368CC29001513004B8839 /* LottieView.swift */; };
+		ACE368CF29001570004B8839 /* emptyShoeAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = ACE368CE29001570004B8839 /* emptyShoeAnimation.json */; };
 		ACF8509428E604D50053BE2F /* ShoesMarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */; };
 		ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF8509528E604D50053BE2F /* SMTabBar.swift */; };
 		ACF8509828E604D60053BE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF8509728E604D60053BE2F /* Assets.xcassets */; };
@@ -81,6 +85,9 @@
 		ACE23AF328E65DE2009D9E08 /* CatalogNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogNavigationView.swift; sourceTree = "<group>"; };
 		ACE23AF528E66B8D009D9E08 /* CatalogItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItemView.swift; sourceTree = "<group>"; };
 		ACE23AF728E66FC0009D9E08 /* CatalogScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogScrollView.swift; sourceTree = "<group>"; };
+		ACE368C728FFF350004B8839 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		ACE368CC29001513004B8839 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		ACE368CE29001570004B8839 /* emptyShoeAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyShoeAnimation.json; sourceTree = "<group>"; };
 		ACF8509028E604D50053BE2F /* ShoesMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoesMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF8509328E604D50053BE2F /* ShoesMarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesMarketApp.swift; sourceTree = "<group>"; };
 		ACF8509528E604D50053BE2F /* SMTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMTabBar.swift; sourceTree = "<group>"; };
@@ -99,6 +106,7 @@
 			files = (
 				AC44130028EB907800DCBE2E /* ScrollViewProxy in Frameworks */,
 				AC441EE728F53F430050C57F /* ColorKit in Frameworks */,
+				ACE368CB290014B3004B8839 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				ACB498E028F9334000A0BD4C /* SquareBarButton.swift */,
+				ACE368CC29001513004B8839 /* LottieView.swift */,
 				AC59074128EB6C08004E6AEF /* SMTabBar */,
 				AC4B1CED28FBDACE00093967 /* SMImagesViewer */,
 			);
@@ -138,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				AC669C0628F2A2600039B542 /* Product.swift */,
+				ACE368C728FFF350004B8839 /* Tag.swift */,
 				AC21FC5228F6BF0A002B4A30 /* Category.swift */,
 				ACB498DB28F9241400A0BD4C /* Review.swift */,
 			);
@@ -239,6 +249,7 @@
 		ACF8509228E604D50053BE2F /* ShoesMarket */ = {
 			isa = PBXGroup;
 			children = (
+				ACE368CE29001570004B8839 /* emptyShoeAnimation.json */,
 				AC669C0828F2A47F0039B542 /* Extensions */,
 				AC669C0528F2A2330039B542 /* Models */,
 				ACF850A328E60BCD0053BE2F /* Views */,
@@ -290,6 +301,7 @@
 			packageProductDependencies = (
 				AC4412FF28EB907800DCBE2E /* ScrollViewProxy */,
 				AC441EE628F53F430050C57F /* ColorKit */,
+				ACE368CA290014B3004B8839 /* Lottie */,
 			);
 			productName = ShoesMarket;
 			productReference = ACF8509028E604D50053BE2F /* ShoesMarket.app */;
@@ -322,6 +334,7 @@
 			packageReferences = (
 				AC4412FE28EB907800DCBE2E /* XCRemoteSwiftPackageReference "ScrollViewProxy" */,
 				AC441EE528F53F430050C57F /* XCRemoteSwiftPackageReference "ColorKit" */,
+				ACE368C9290014B3004B8839 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = ACF8509128E604D50053BE2F /* Products */;
 			projectDirPath = "";
@@ -337,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACE368CF29001570004B8839 /* emptyShoeAnimation.json in Resources */,
 				ACF8509C28E604D60053BE2F /* Preview Assets.xcassets in Resources */,
 				ACF8509828E604D60053BE2F /* Assets.xcassets in Resources */,
 			);
@@ -350,6 +364,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE23AF828E66FC1009D9E08 /* CatalogScrollView.swift in Sources */,
+				ACE368CD29001513004B8839 /* LottieView.swift in Sources */,
+				ACE368C828FFF350004B8839 /* Tag.swift in Sources */,
 				AC669C0A28F2A4900039B542 /* Color+Extension.swift in Sources */,
 				ACF8509628E604D50053BE2F /* SMTabBar.swift in Sources */,
 				ACB498EC28F9391400A0BD4C /* ReviewsList.swift in Sources */,
@@ -624,6 +640,14 @@
 				kind = branch;
 			};
 		};
+		ACE368C9290014B3004B8839 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -636,6 +660,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC441EE528F53F430050C57F /* XCRemoteSwiftPackageReference "ColorKit" */;
 			productName = ColorKit;
+		};
+		ACE368CA290014B3004B8839 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACE368C9290014B3004B8839 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

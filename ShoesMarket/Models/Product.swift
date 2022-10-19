@@ -18,6 +18,7 @@ struct Product {
     let raiting: CGFloat
     let variants: [Variant]
     let categories: [String]
+    let tags: [Tag]
 
     var costLabel: String {
         "\(cost)₽"
@@ -86,7 +87,8 @@ struct Product {
                 shoeColor: .red
             )
         ],
-        categories: ["1"]
+        categories: ["1"],
+        tags: [.init(id: "1", name: "Зимние"), .init(id: "2", name: "Высокие")]
     )
 }
 
@@ -108,7 +110,8 @@ private extension Product {
                         shoeColor: .yellow
                     )
                 ],
-                categories: ["1"]
+                categories: ["1"],
+                tags: [.init(id: "1", name: "Зимние"), .init(id: "2", name: "Высокие"), .init(id: "4", name: "Джорданы")]
             ),
             Product(
                 id: "123",
@@ -124,7 +127,8 @@ private extension Product {
                         shoeColor: .black
                     )
                 ],
-                categories: ["1"]
+                categories: ["1"],
+                tags: [.init(id: "3", name: "Черно-белые")]
             ),
             Product(
                 id: "13",
@@ -140,7 +144,8 @@ private extension Product {
                         shoeColor: .red
                     )
                 ],
-                categories: ["1", "3"]
+                categories: ["1", "3"],
+                tags: [.init(id: "4", name: "Джорданы")]
             ),
             Product(
                 id: "3.2",
@@ -162,7 +167,8 @@ private extension Product {
                         shoeColor: .red
                     )
                 ],
-                categories: ["2"]
+                categories: ["2"],
+                tags: [.init(id: "1", name: "Зимние"), .init(id: "5", name: "Данки")]
             ),
             Product(
                 id: "5",
@@ -178,7 +184,8 @@ private extension Product {
                         shoeColor: .gray
                     )
                 ],
-                categories: ["4"]
+                categories: ["4"],
+                tags: [.init(id: "3", name: "Черно-белые")]
             ),
             Product(
                 id: "2",
@@ -200,7 +207,8 @@ private extension Product {
                         shoeColor: .red
                     )
                 ],
-                categories: ["2"]
+                categories: ["2"],
+                tags: [.init(id: "4", name: "Джорданы")]
             ),
             Product(
                 id: "6",
@@ -228,7 +236,8 @@ private extension Product {
                         shoeColor: .black
                     )
                 ],
-                categories: ["1", "3"]
+                categories: ["1", "3"],
+                tags: [.init(id: "3", name: "Черно-белые")]
             )
         ]
     }

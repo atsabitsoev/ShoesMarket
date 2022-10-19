@@ -12,9 +12,16 @@ struct CatalogView: View {
     @State private var allProducts: [Product] = []
     @State private var shownProducts: [Product] = []
     @State private var currentProductIndex: Int = 0
+
+    @State private var emptyItemsScenario: Bool = false
+    @State private var emptyTextOpacity: CGFloat = 0
+
     @State private var categories: [Category] = []
     @State private var currentCategory: Category?
+
     @State private var isPresentedDetails: Bool = false
+
+    @State private var filters: [Tag] = [.init(id: "1", name: "")]
 
     @State private var mainColor = Color(.displayP3, red: 22/255, green: 24/255, blue: 24/255)
     @State private var backgroundColor = Color(.displayP3, red: 247/255, green: 202/255, blue: 10/255)
@@ -29,7 +36,22 @@ struct CatalogView: View {
                 CatalogBackground($mainColor)
                     .ignoresSafeArea()
                 VStack {
-                    CatalogNavigationView()
+                    CatalogNavigationView(
+                        filtersActive: Binding(get: {
+                            !filters.isEmpty
+                        }, set: { (_, _) in }),
+                        tintColor: $detailColor,
+                        cartAction: {
+                            print("cart")
+                        },
+                        filtersAction: {
+                            print("filters")
+                        },
+                        firmAction: {
+                            print("firm")
+                        }
+                    )
+
                     Spacer()
                     CatalogCategoriesView(
                         categories: $categories,
@@ -39,12 +61,41 @@ struct CatalogView: View {
                             updateShownProducts()
                         }
                     Spacer()
-                    CatalogScrollView(items: $shownProducts) { newIndex in
-                        currentProductIndex = newIndex
-                        updateColors()
-                    } onItemTap: { index in
-                        tappedProduct = shownProducts[index]
-                        isPresentedDetails = true
+                    ZStack {
+                        CatalogScrollView(items: $shownProducts) { newIndex in
+                            print(newIndex)
+                            if newIndex == -1 {
+                                emptyItemsScenario = true
+                                return
+                            } else {
+                                emptyItemsScenario = false
+                            }
+                            currentProductIndex = newIndex
+                            updateColors()
+                        } onItemTap: { index in
+                            tappedProduct = shownProducts[index]
+                            isPresentedDetails = true
+                        }
+                        if emptyItemsScenario {
+                            VStack {
+                                Spacer()
+                                Text("Тут ничего нет :(")
+                                    .bold()
+                                    .foregroundColor(.black.opacity(0.5))
+                                    .scaledToFit()
+                                    .opacity(emptyTextOpacity)
+                                    .animation(Animation.linear(duration: 0.3), value: emptyTextOpacity)
+                                    .onAppear {
+                                        emptyTextOpacity = 1
+                                    }
+                                    .onDisappear {
+                                        emptyTextOpacity = 0
+                                    }
+                                LottieView(lottieFile: "emptyShoeAnimation")
+                                    .frame(height: 150)
+                                Spacer()
+                            }
+                        }
                     }
                     Spacer()
                     SMTabBar(
@@ -82,12 +133,25 @@ private extension CatalogView {
     }
 
     func updateShownProducts() {
-        withAnimation {
-            if let currentCategory {
-                shownProducts = allProducts.filter({ return $0.categories.contains(currentCategory.id) || currentCategory.isAllProductsCategory })
-            } else {
-                shownProducts = allProducts
-            }
+        let newShownProducts: [Product]
+        if let currentCategory {
+            newShownProducts = allProducts
+                .filter({
+                    $0.categories.contains(currentCategory.id) || currentCategory.isAllProductsCategory
+                })
+        } else {
+            newShownProducts = allProducts
+        }
+        let filteredNewShownProducts = newShownProducts
+            .filter({ product in
+                filters.reduce(true, { result, filter in
+                    result && product.tags.contains(where: { tag in
+                        filter.id == tag.id
+                    })
+                })
+            })
+        withAnimation(.easeInOut(duration: 0.3)) {
+            shownProducts = filteredNewShownProducts
         }
     }
 

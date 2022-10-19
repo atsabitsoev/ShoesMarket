@@ -11,16 +11,18 @@ import ScrollViewProxy
 
 struct CatalogScrollView: View {
     @State private var offsetX: CGFloat = 0
+    @State private var itemOpacity: CGFloat = 0
     @Binding private var items: [Product]
 
 
-    private let scrollDelegate: CatalogScrollViewDelegate = CatalogScrollViewDelegate()
+    private let scrollDelegate: CatalogScrollViewDelegate = CatalogScrollViewDelegate.shared
     private let idealOffset: CGFloat = (UIScreen.main.bounds.width - CatalogItemView.Constants.width) / 2
 
     private let onItemChange: (Int) -> Void
     private let onItemTap: (Int) -> Void
 
 
+    /// onItemChange передает -1, если items получил значение пустого массива []
     init(
         items: Binding<[Product]>,
         onItemChange: @escaping (Int) -> Void,
@@ -67,11 +69,17 @@ struct CatalogScrollView: View {
             }
             .onChange(of: items) { newValue in
                 proxy.scrollTo(.leading, animated: true)
+                guard !newValue.isEmpty else {
+                    onItemChange(-1)
+                    return
+                }
                 onItemChange(0)
             }
         }
         .introspectScrollView { scrollView in
-            scrollView.delegate = scrollDelegate
+            if scrollView.delegate !== scrollDelegate {
+                scrollView.delegate = scrollDelegate
+            }
             scrollView.decelerationRate = .init(rawValue: 0.9)
         }
     }
@@ -79,6 +87,10 @@ struct CatalogScrollView: View {
 
 
 final class CatalogScrollViewDelegate: NSObject, UIScrollViewDelegate {
+    private override init() {}
+    static let shared = CatalogScrollViewDelegate()
+
+
     var onEndDragging: ((_ willDecelerate: Bool) -> Void)?
     var onEndDecelerating: (() -> Void)?
 
